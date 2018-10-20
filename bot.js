@@ -77,25 +77,25 @@ if(message.content.startsWith(p + `info-bot`)) {
 if (['ship'].includes(command)) {
     if (!args[0]) args[0] = message.guild.members.random();
     if (!args[1]) args[1] = message.author
-    if (args[0].length > 30 || args[1].length > 30) return message.reply('✖ `Ошибка. Причина:` **Аргумент не может быть длиннее 30 символов**');
+    if (args[0].length > 30 || args[1].length > 30) return message.reply('✖ `Ошибка. Причина:` **Не может быть длиннее 30 символов**');
     let loveText
-    let shkala
+    let line
     let percents = randomInteger(0, 100)
-    if (percents <= 99) {loveText = 'Невероятно!!! :heart_eyes:'; shkala = '■■■■■■■■■□'; }
-    if (percents <= 89) {loveText = 'Превосходно! :heartpulse:'; shkala = '■■■■■■■■□□';}
-    if (percents <= 79) {loveText = 'Ууу ( ͡° ͜ʖ ͡°)'; shkala = '■■■■■■■□□□';}
-    if (percents <= 69) {loveText = 'Дружески :+1:'; shkala = '■■■■■■□□□□';}
-    if (percents <= 59) {loveText = 'Неплохо :confused:'; shkala = '■■■■■□□□□□';}
-    if (percents <= 49) {loveText = 'Средне :thinking:'; shkala = '■■■■□□□□□□';}
-    if (percents <= 49) {loveText = 'Плохо :frowning2:'; shkala = '■■■□□□□□□□';}
-    if (percents <= 29) {loveText = 'Очень плохо :disappointed_relieved:'; shkala = '■■□□□□□□□□';}
-    if (percents <= 19) {loveText = 'Ужасно :sob:'; shkala = '■□□□□□□□□□';}
-    if (percents <= 9) {loveText = 'Хуже некуда :poop:'; shkala = '□□□□□□□□□□';}
-    if (percents >= 100) {loveText = 'ИДЕАЛЬНО!!! :heart_exclamation:'; shkala = '■■■■■■■■■■'; percents = 100;}
+    if (percents <= 99) {loveText = 'Под заебись'; line = '❤❤❤❤❤❤❤❤'; }
+    if (percents <= 89) {loveText = 'Превосходно! :heartpulse:'; line = '❤❤❤❤❤❤❤';}
+    if (percents <= 79) {loveText = '( ͡° ͜ʖ ͡°)'; line = '❤❤❤❤❤❤❤';}
+    if (percents <= 69) {loveText = 'По братски'; line = '❤❤❤❤❤❤';}
+    if (percents <= 59) {loveText = 'Неплохо :confused:'; line = '❤❤❤❤❤';}
+    if (percents <= 49) {loveText = 'Средне :thinking:'; line = '❤❤❤❤';}
+    if (percents <= 49) {loveText = 'Плохо :frowning2:'; line = '❤❤❤';}
+    if (percents <= 29) {loveText = ':poop:'; line = '❤❤';}
+    if (percents <= 19) {loveText = 'Ну блять,нет слов...'; line = '❤';}
+    if (percents <= 9) {loveText = 'Всё хуева'; line = '□□□□□□□□□□';}
+    if (percents >= 100) {loveText = 'ЗАЕБИСЬ!!!!!'; line = '❤❤❤❤❤❤❤❤❤❤'; percents = 100;}
     const embed = new Discord.RichEmbed()
         .setTitle("МАТЧМЕЙКИНГ")
         .setColor(message.member.highestRole.hexColor)
-        .setDescription('▼***' + args[0] + '***\n▲***' + args[1] + '***\n\n:revolving_hearts:Любовь в проценатах: **' + percents + '%** `[' + shkala + ']`\n:revolving_hearts:' + '\n\nВердикт: **' + loveText + '**')
+        .setDescription('▼***' + args[0] + '***\n▲***' + args[1] + '***\n\n:revolving_hearts:Любовь в проценатах: **' + percents + '%** `[' + line + ']`\n:revolving_hearts:' + '\n\nВердикт: **' + loveText + '**')
         .setFooter(server_name+"| ;ship")
         .setTimestamp();
     message.channel.send({embed});
@@ -1044,5 +1044,5 @@ if(message.content.startsWith(p + `help`)) {
 }});
 //статус
     client.on('ready', () => {
-        client.user.setPresence({ game: { name: `на звезды | ;help`, type: 2 } }).catch();
+        client.user.setPresence({ game: { name: `на звезды | ;help`, type: 0 } }).catch();
     });

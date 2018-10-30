@@ -30,8 +30,9 @@ function setBigTimeout(func, timeout) {
 client.login(process.env.BOT_TOKEN);
 //команды
 client.on('memberGuildAdd', member => {
-	if(member.guild.id !='472966874133692426') return;
+	if(member.guild.id !=='472966874133692426') return;
 	const channel = client.channels.get('472968393708929024');
+	if(!channel) return;
 	channel.send({embed: new Discord.RichEmbed()
 		      .setTitle(`Добро пожаловать на ${member.guild.name}`)
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
@@ -43,8 +44,9 @@ client.on('memberGuildAdd', member => {
 		     })
 });
 client.on('memberGuildRemove', member => {
-	if(member.guild.id !='472966874133692426') return;
+	if(member.guild.id !=='472966874133692426') return;
 	const channel = client.channels.get('472968393708929024');
+	if(!channel) return;
 	channel.send({embed: new Discord.RichEmbed()
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)
@@ -257,16 +259,10 @@ if(['sms'].includes(command)) {
             user1 = message.author;
         }
         message.channel.send('.').then(msg => {
-            const urls = [
-    "http://gifimage.net/wp-content/uploads/2017/07/head-pat-gif-11.gif",
-    "http://gifimage.net/wp-content/uploads/2017/09/anime-pat-gif-8.gif",
-    "http://slinky.me/uploads/pic/8/tumblr_nf1jtcIDZZ1si4e7ko1_500.gif",
-    "https://i.imgur.com/hPR7SOt.gif",
-    "https://i.imgur.com/L8voKd1.gif"
-    ];
+            weeb.random('pat', { hidden: false, nsfw: false, filetype: 'gif'}).then(t => {
     const selfbite = new Discord.RichEmbed()
     .setDescription(`${user} **погладила по голове** <@476739055392915486>`)
-    .setImage((urls[Math.floor(Math.random() * urls.length)]))
+    .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
     .setFooter(server_name+" | ;pat @User") 
     .setTimestamp(); 
@@ -275,7 +271,7 @@ if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(f
     }).catch(function() {});
 let embed = new Discord.RichEmbed()
     .setDescription(`${user} **Погладила по голове** ${user1}`)
-    .setImage((urls[Math.floor(Math.random() * urls.length)]))
+    .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
     .setFooter(server_name+" | ;pat @User") 
     .setTimestamp(); 
@@ -283,6 +279,7 @@ let embed = new Discord.RichEmbed()
               message.react("🤚")
           }).catch(function() {});
     });
+	});
     }
         if (message.content.startsWith(p + `kiss`)) {
             message.delete();
@@ -493,9 +490,9 @@ let embed = new Discord.RichEmbed()
     }
 	if (message.content.startsWith(p + `bite`)) {
         message.delete();
-	const urls = ['https://avatars.mds.yandex.net/get-pdb/477388/69159794-3747-48d7-933d-e77c888eae22/orig','https://media1.tenor.com/images/83271613ed73fd70f6c513995d7d6cfa/tenor.gif?itemid=4915753','https://i.gifer.com/L1lz.gif','https://i.kym-cdn.com/photos/images/newsfeed/001/093/845/d72.gif','https://media1.tenor.com/images/2440ac6ca623910a258b8616704850f0/tenor.gif?itemid=7922565','http://gifimage.net/wp-content/uploads/2017/09/anime-bite-gif-7.gif', 'http://gifimage.net/wp-content/uploads/2017/09/anime-bite-gif-4.gif','http://i.imgur.com/YCAzLzh.gif','https://image.myanimelist.net/ui/uf6p6rEk2dlZoh8DIyYQTScPXcYWVkorZzR5QFff8DxXSVE36h19EcKvk3qWN8Qjz6wjzP1DvxcR9h-KIPhFblLuqgwER_AAddaI6tZVr6nk8lQiKT87JfEEq9USDPxcaCEQQ04R3UP5hio6lAMZ3g','https://vignette.wikia.nocookie.net/narutofanon/images/7/76/CanineBite.gif/revision/latest?cb=20160613052106','https://media1.tenor.com/images/a74770936aa6f1a766f9879b8bf1ec6b/tenor.gif?itemid=4676912','https://38.media.tumblr.com/a8facaed7dbb8aa75aac7cc81b144520/tumblr_mibcsb1zPZ1s4xyu5o1_500.gif', 'https://i.gifer.com/MHg3.gif'];
         let user = message.author;
         let user1 = message.mentions.users.first();
+		weeb.random('bite', { hidden: false, nsfw: false, filetype: 'gif'}).then(t => {
 		const selfbite = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** себя`)
                         .setImage("https://78.media.tumblr.com/bbea36e4585df159eb4a339efc97313a/tumblr_ormo8ikFnO1wn2b96o1_500.gif")
@@ -507,7 +504,7 @@ let embed = new Discord.RichEmbed()
                         }).catch(function() {});
                     let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** ${user1}`)
-                        .setImage((urls[Math.floor(Math.random() * urls.length)]))
+                        .setImage(t.url)
                         .setColor(message.member.highestRole.hexColor)
                         .setFooter(server_name+" | ;bite @User") 
                         .setTimestamp(); 
@@ -515,6 +512,7 @@ let embed = new Discord.RichEmbed()
                         ).then(function(message) {
                             message.react("😱")
                         }).catch(function() {});
+		});
     }
 	if (message.content.startsWith(p + `smoke`)) {
         let user = message.author;
@@ -564,28 +562,10 @@ let embed = new Discord.RichEmbed()
 	if (message.content.startsWith(p + `dance`)) {
         let user = message.author;
 				      message.channel.send('Загрузка...').then(msg => {
-					      const urls = [
-			"https://media.giphy.com/media/b7l5cvG94cqo8/giphy.gif",
-			"https://media.giphy.com/media/euMGM3uD3NHva/giphy.gif",
-			"https://media.giphy.com/media/9gxhLXyJXqAhi/giphy.gif",
-			"https://media.giphy.com/media/1448TKNMMg4BFu/giphy.gif",
-			"https://media.giphy.com/media/11lxCeKo6cHkJy/giphy.gif",
-			"https://media.giphy.com/media/U4CH4BYqpxlEQ/giphy.gif",
-			"http://media.indiedb.com/cache/images/groups/1/1/84/thumb_620x2000/02-OP-2.gif",
-			"http://media.giphy.com/media/EAOTD2L0qyvhm/giphy.gif",
-			"http://media.giphy.com/media/938JXzfcl714I/giphy.gif",
-			"https://media.giphy.com/media/TF1Az4ZjffK80/giphy.gif",
-			"https://media.giphy.com/media/roym7Gv1DVK0/giphy.gif",
-			"http://3.bp.blogspot.com/-VfIDEBGn9Gw/TaBUrYAWUZI/AAAAAAAAAmM/awcUvfHyPUE/s1600/Hayate_no_Gotoku_-_Caramelldansen.gif",
-			"https://img.buzzfeed.com/buzzfeed-static/static/2014-01/enhanced/webdr06/29/10/anigif_enhanced-31738-1391010205-4.gif",
-			"https://pa1.narvii.com/6115/a1ed9d29332a87ff81c373106db45d61df7fbbf6_hq.gif",
-			"http://i0.kym-cdn.com/photos/images/newsfeed/001/153/506/bcd.gif",
-			"https://img.gifmagazine.net/gifmagazine/images/677019/original.gif",
-			"https://media1.tenor.com/images/b3ee0c82bf87b4cfce2067ebfa658828/tenor.gif"
-		];
+					      weeb.random('dance', { hidden: false, nsfw: false, filetype: 'gif'}).then(t => {
 		     let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **начал(а) танцевать.**`)
-                        .setImage(urls[Math.floor(Math.random() * urls.length)])
+                        .setImage(t.url)
                         .setColor(message.member.highestRole.hexColor)
 			.setFooter(server_name+"| ;dance")
 		     .setTimestamp();
@@ -593,6 +573,7 @@ let embed = new Discord.RichEmbed()
                             message.react("👯")
                         }).catch(function() {});
         });
+				      });
     }
     if (message.content.startsWith(p + `cookie`)) {
         let user = message.author;
@@ -665,28 +646,11 @@ if (message.content.startsWith(p + `lick`)) {
     let user = message.author;
     let user1 = message.mentions.users.first();
     message.channel.send('Загрузка...').then(msg => {
-        const urls = [
-"https://gifer.com/i/72M.gif",
-"https://media.giphy.com/media/ky2p36qednUu4/giphy.gif",
-"https://i.kym-cdn.com/photos/images/original/001/084/805/287.gif",
-"https://uploads.disquscdn.com/images/03f4bb0f623dc57b57ed251a0be34a36eda64367c6a2d59e88e0ac9211c2a910.gif",
-"https://vignette.wikia.nocookie.net/the-kennel/images/9/9a/Ichigo_Mickey_lick.gif/revision/latest?cb=20141202220346",
-"http://images.pandaapp.com/android/2011/06/20/Kanamemo-7-1-licking.gif",
-"https://orig00.deviantart.net/20c8/f/2013/215/8/d/lick_2_by_anime_wolfz-d6gi186.gif",
-"https://i.kym-cdn.com/photos/images/original/001/230/497/04d.gif",
-"http://mrwgifs.com/wp-content/uploads/2013/04/Snuggling-Cuddling-Anime-Girls-Gif-.gif",
-"https://img1.ak.crunchyroll.com/i/spire1/92b3653029e9196cfbedfd6a5ff3dc881488421004_full.gif",
-"https://vignette.wikia.nocookie.net/the-kennel/images/7/7a/Tsundere_Lick_Gif.gif/revision/latest?cb=20130828004256",
-"https://vignette.wikia.nocookie.net/the-kennel/images/7/79/Haruka_dog_lick.gif/revision/latest?cb=20170206183035",
-"https://media.giphy.com/media/12MEJ2ArZc23cY/source.gif",
-"http://gifimage.net/wp-content/uploads/2017/09/anime-lick-gif-12.gif",
-"https://media1.tenor.com/images/783188d1592d16bcc83f52639fad8fcb/tenor.gif?itemid=10816601",
-"https://33.media.tumblr.com/0fc51db3ee68263bfac91dcfa9c3ebb6/tumblr_nwsmfzIbio1sfyp69o1_500.gif",
-"https://media1.tenor.com/images/0ce34500facf2ada86307bb740a03dfd/tenor.gif?itemid=5567738"
-];
+	    weeb.random('lick', { hidden: false, nsfw: false, filetype: types[Math.floor(Math.random() * types.length)] }).then(t => {
+   
 let embed = new Discord.RichEmbed()
 .setDescription(`${user} **Лизнул(а)** ${user1}`)
-.setImage(urls[Math.floor(Math.random() * urls.length)])
+.setImage(t.url)
 .setColor(message.member.highestRole.hexColor)
 .setFooter(server_name+"| ;lick @user")
 .setTimestamp();
@@ -694,33 +658,16 @@ msg.edit({embed}).then(function(message) {
 message.react("😛")
 }).catch(function() {});
 });
+    });
 }
 if (message.content.startsWith(p + `nom`)) {
     let user = message.author;
     let user1 = message.mentions.users.first();
     message.channel.send('Загрузка...').then(msg => {
-        const urls = [
-"http://yeinjee.com/wp-content/uploads/2014/07/non-non-biyori-1.gif",//1
-"https://78.media.tumblr.com/8c4cf9adafa72ace226f08ab4c3c9c20/tumblr_obpdd2MJlx1qmgtx5o1_500.gif",//2
-"https://i.pinimg.com/originals/d6/82/df/d682df05def2a153f9e87bba4ee7b934.gif",//3
-"https://media.giphy.com/media/u2Iq2GbjB0N2g/giphy.gif",//4
-"https://media.giphy.com/media/RS8JlmVuNKE5a/giphy.gif",//5
-"https://i.warosu.org/data/g/img/0439/60/1409896417316.gif",//6
-"https://i.gifer.com/2yNA.gif",//7
-"https://orig00.deviantart.net/0010/f/2015/347/c/3/yuki_nagato_nom_nom_nom______gif_animation_by_kyoflameashhylden-d9k1did.gif",//8
-"https://i.imgur.com/Ryy3D7r.gif",//9
-"https://media.giphy.com/media/Pl4LoOqZL8skE/source.gif",//10
-"http://3.bp.blogspot.com/-UDpzj0tcQrA/T5uavPPjO8I/AAAAAAAADAQ/8HbCYDj0API/s1600/acchikocchi03.gif",//11
-"https://steamusercontent-a.akamaihd.net/ugc/820063037363720336/D369DC5DF900BC55354DEC4FB5175AE7F4AE5DDC/",//12
-"https://gifer.com/i/2uIY.gif",//13
-"https://i.chzbgr.com/full/8972792576/h27BBD3A2/",//14
-"https://media.tenor.com/images/ff8ff7fa741d8c3fc23cc3e8fe20697d/tenor.gif",//15
-"https://img.gifmagazine.net/gifmagazine/images/698873/original.gif",//16
-"https://media1.tenor.com/images/26beab5ca39fba753a2de57b1d74e519/tenor.gif?itemid=5215437"//17
-];
+        weeb.random('nom', { hidden: false, nsfw: false, filetype: 'gif' }).then(t => {
 let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Дал(а) поесть**${user1}`)
-      .setImage(urls[Math.floor(Math.random() * urls.length)])
+      .setImage(t.url)
       .setColor(message.member.highestRole.hexColor)
 .setFooter(server_name+"| ;nom @user")
 .setTimestamp();
@@ -728,6 +675,7 @@ let embed = new Discord.RichEmbed()
           message.react("🍱")
       }).catch(function() {});
 });
+    });
 }
 if (message.content.startsWith(p + `hi`)) {
     message.delete();

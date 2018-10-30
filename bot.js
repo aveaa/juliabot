@@ -34,7 +34,7 @@ const weeb = new wrapper("Wolke "+process.env.WEEB_TOKEN);
 client.on('ready', () => {
 console.log("ready")	
 });
-client.on('memberGuildAdd', member => {
+client.on("guildMemberAdd", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Добро пожаловать на ${member.guild.name}`)
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
@@ -45,7 +45,7 @@ client.on('memberGuildAdd', member => {
 		      .setColor("RANDOM")
 		     })
 });
-client.on('memberGuildRemove', member => {
+client.on("guildMemberRemove", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)

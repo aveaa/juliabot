@@ -648,7 +648,7 @@ if (message.content.startsWith(p + `lick`)) {
     let user = message.author;
     let user1 = message.mentions.users.first();
     message.channel.send('Загрузка...').then(msg => {
-	    weeb.random('lick', { hidden: false, nsfw: false, filetype: types[Math.floor(Math.random() * types.length)] }).then(t => {
+	    weeb.random('lick', { hidden: false, nsfw: false, filetype: 'gif' }).then(t => {
    
 let embed = new Discord.RichEmbed()
 .setDescription(`${user} **Лизнул(а)** ${user1}`)

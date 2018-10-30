@@ -29,6 +29,8 @@ function setBigTimeout(func, timeout) {
 //тут токен(секретный,Тссссссс.....)
 client.login(process.env.BOT_TOKEN);
 //команды
+const wrapper = require('weeb-wrapper');
+const weeb = new wrapper("Wolke "+process.env.WEEB_TOKEN);
 client.on('memberGuildAdd', member => {
 	if(member.guild.id !=='472966874133692426') return;
 	const channel = client.channels.get('472968393708929024');

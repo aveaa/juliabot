@@ -31,6 +31,9 @@ client.login(process.env.BOT_TOKEN);
 //команды
 const wrapper = require('weeb-wrapper');
 const weeb = new wrapper("Wolke "+process.env.WEEB_TOKEN);
+client.on('ready', () => {
+console.log("ready")	
+});
 client.on('memberGuildAdd', member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Добро пожаловать на ${member.guild.name}`)

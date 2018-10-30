@@ -32,10 +32,7 @@ client.login(process.env.BOT_TOKEN);
 const wrapper = require('weeb-wrapper');
 const weeb = new wrapper("Wolke "+process.env.WEEB_TOKEN);
 client.on('memberGuildAdd', member => {
-	if(member.guild.id !=='472966874133692426') return;
-	const channel = client.channels.get('472968393708929024');
-	if(!channel) return;
-	channel.send({embed: new Discord.RichEmbed()
+	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Добро пожаловать на ${member.guild.name}`)
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
 		      .addField("Важные каналы:", "<#474204112758636544>  - **__канал с информацией сервера__** \n<#472968097456717824> - **__канал со всеми новостями сервера__** \n<#472968193061814282> - **__канал с конкурсами сервера__**")
@@ -46,10 +43,7 @@ client.on('memberGuildAdd', member => {
 		     })
 });
 client.on('memberGuildRemove', member => {
-	if(member.guild.id !=='472966874133692426') return;
-	const channel = client.channels.get('472968393708929024');
-	if(!channel) return;
-	channel.send({embed: new Discord.RichEmbed()
+	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)
 		      .setColor("RANDOM")

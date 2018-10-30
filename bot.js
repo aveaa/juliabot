@@ -14,7 +14,9 @@ let Kosmo = '477045398263955456';
 let Smotri = '477045398263955456';
 let Chmute = '477065648544153600';
 let VoiceMute = '477065632546816000';
-const server_name = 'Fenix 🔥 '
+//const server_name = 'Fenix 🔥 '
+const server_name = client.guilds.get('472966874133692426').name;
+
 //Функции
 function randomInteger(min, max) {
     max++
@@ -35,11 +37,12 @@ client.on('ready', () => {
 console.log("ready")	
 });
 client.on("guildMemberAdd", member => {
+	let icon = client.guilds.get('472966874133692426').iconURL;
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
 		      .setTitle(`Добро пожаловать на ${member.guild.name}`)
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
 		      .addField("Важные каналы:", "<#474204112758636544>  - **__канал с информацией сервера__** \n<#472968097456717824> - **__канал со всеми новостями сервера__** \n<#472968193061814282> - **__канал с конкурсами сервера__**")
-		      .setImage(member.guild.iconURL)
+		      .setImage(icon)
 		      .setThumbnail(member.user.displayAvatarURL)
 		      .setFooter(member.user.displayAvatarURL, member.user.tag)
 		      .setColor("RANDOM")

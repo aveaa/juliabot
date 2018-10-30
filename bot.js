@@ -66,7 +66,6 @@ if(message.content.startsWith(p + 'say')) {
     const embed = new Discord.RichEmbed()
     .setColor(message.member.highestRole.hexColor)
     .setDescription(say)
-    .setFooter(server_name+"| ;say [text]")
     .setTimestamp();
     message.channel.send({embed});
 }

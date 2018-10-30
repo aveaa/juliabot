@@ -41,7 +41,7 @@ client.on("guildMemberAdd", member => {
 		      .addField("Важные каналы:", "<#474204112758636544>  - **__канал с информацией сервера__** \n<#472968097456717824> - **__канал со всеми новостями сервера__** \n<#472968193061814282> - **__канал с конкурсами сервера__**")
 		      .setImage(member.guild.iconURL)
 		      .setThumbnail(member.user.displayAvatarURL)
-		      .setFooter(member.user.avatarURL, member.user.tag)
+		      .setFooter(member.user.displayAvatarURL, member.user.tag)
 		      .setColor("RANDOM")
 		     })
 });
@@ -51,7 +51,7 @@ client.on("guildMemberRemove", member => {
 		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)
 		      .setColor("RANDOM")
 		      .setThumbnail(member.user.displayAvatarURL)
-		      .setFooter(member.user.avatarURL, member.user.tag)
+		      .setFooter(member.user.displayAvatarURL, member.user.tag)
 		     })
 });
 client.on('message', message => {

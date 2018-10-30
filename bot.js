@@ -40,7 +40,7 @@ client.on("guildMemberAdd", member => {
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
 		      .addField("Важные каналы:", "<#474204112758636544>  - **__канал с информацией сервера__** \n<#472968097456717824> - **__канал со всеми новостями сервера__** \n<#472968193061814282> - **__канал с конкурсами сервера__**")
 		      .setImage(member.guild.iconURL)
-		      .setThumbnail(member.user.avatarURL)
+		      .setThumbnail(member.user.displayAvatarURL)
 		      .setFooter(member.user.avatarURL, member.user.tag)
 		      .setColor("RANDOM")
 		     })
@@ -50,7 +50,7 @@ client.on("guildMemberRemove", member => {
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)
 		      .setColor("RANDOM")
-		      .setThumbnail(member.user.avatarURL)
+		      .setThumbnail(member.user.displayAvatarURL)
 		      .setFooter(member.user.avatarURL, member.user.tag)
 		     })
 });

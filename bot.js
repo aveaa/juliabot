@@ -37,22 +37,24 @@ console.log("ready")
 });
 client.on("guildMemberAdd", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
-		      .setTitle(`Добро пожаловать на ${member.guild.name}`)
+	  	      .setAuthor(member.tag, member.user.displayAvatarURL)
+		      .setTitle(`Добро пожаловать на ${member.guild.name}`, 'https://discord-server.com/472966874133692426')
 		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
 		      .addField("Важные каналы:", "<#490472395140759553>  - **__канал с правилами сервера__** \n<#490472095763922954>  - **__канал с информацией сервера__** \n<#506806612317437952> - **__канал со всеми новостями сервера__** \n<#506241187506683945> - **__канал с конкурсами сервера__**")
 		      .setImage("https://cdn.discordapp.com/icons/472966874133692426/1fc94df9d9e55ab21180b7448af20e1d.png")
 		      .setThumbnail(member.user.displayAvatarURL)
-		      .setFooter(member.user.tag, member.user.displayAvatarURL)
 		      .setColor("RANDOM")
+		      .setFooter(`Теперь нас ${member.guild.memberCount}`)
 		     })
 });
 client.on("guildMemberRemove", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
+		      .setAuthor(member.tag, member.user.displayAvatarURL)
 		      .setTitle(`Прощай ${member.user.tag}`)
-		      .setDescription(`${member.user.username} решил покинуть нас, видимо космос ему не по зубам! :wave:`)
+		      .setDescription(`${member.user.username} решил покинуть наc! :wave:`)
 		      .setColor("RANDOM")
 		      .setThumbnail(member.user.displayAvatarURL)
-		      .setFooter(member.user.tag, member.user.displayAvatarURL)
+		       .setFooter(`Теперь нас ${member.guild.memberCount}`)
 		     })
 });
 client.on('message', message => {

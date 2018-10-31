@@ -2,10 +2,10 @@ const Discord = require(`discord.js`);
 const request = require("request");
 const client = new Discord.Client();
 let id = '476978677872328705';
-client.on('voiceStateUpdate', (old_, new_) => {
+/*client.on('voiceStateUpdate', (old_, new_) => {
 if (old_.voiceChannelID) new_.removeRole(id).catch()
 if (new_.voiceChannelID) new_.addRole(id).catch()
-});
+});*/
 let p = ";"
 let admp = "@!"
 //ID ролей
@@ -43,7 +43,7 @@ client.on("guildMemberAdd", member => {
 		      .addField("Важные каналы:", "<#490472395140759553>  - **__канал с правилами сервера__** \n<#490472095763922954>  - **__канал с информацией сервера__** \n<#506806612317437952> - **__канал со всеми новостями сервера__** \n<#506241187506683945> - **__канал с конкурсами сервера__**")
 		      .setImage("https://cdn.discordapp.com/attachments/442527699936870401/507065289142304768/welcome.jpg")
 		      .setThumbnail(member.user.displayAvatarURL)
-		      .setColor("RANDOM")
+		      .setColor("GREEN")
 		      .setFooter(`Теперь нас ${member.guild.memberCount}`)
 		     })
 });
@@ -52,7 +52,7 @@ client.on("guildMemberRemove", member => {
 		      .setAuthor(member.user.tag, member.user.displayAvatarURL)
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть наc! :wave:`)
-		      .setColor("RANDOM")
+		      .setColor("RED")
 		      .setThumbnail(member.user.displayAvatarURL)
 		       .setFooter(`Теперь нас ${member.guild.memberCount}`)
 		     })
@@ -712,7 +712,7 @@ const urls = [
                         message.react("👋")
                     }).catch(function() {});
                 let embed = new Discord.RichEmbed()
-                    .setDescription(message.author+` **сказал(а) привет!** `+message.mentions.users.first())
+                    .setDescription(message.author+` **сказал(а) привет** `+message.mentions.users.first())
                     .setImage((urls[Math.floor(Math.random() * urls.length)]))
                     .setColor(message.member.highestRole.hexColor)
                     .setFooter(server_name+" | ;hi @User") 

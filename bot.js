@@ -944,7 +944,7 @@ if (message.content.startsWith(p + `||test`)) {
 let embed = new Discord.RichEmbed()
       .setDescription(`**Тест бота**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
-      .setColor('RANDOM');
+      .setColor('RANDOM')
       .setFooter(`[;||test] | [${message.guild.name}]`)
 		    .setTimestamp();
   msg.edit({embed}).then(function(message) {

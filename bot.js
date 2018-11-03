@@ -74,7 +74,7 @@ if(message.content.startsWith(p + `info-bot`)) {
         .setTitle("**Информация о боте**")
         .setColor(message.member.highestRole.hexColor)
         .setDescription('Бот создан для сервера **MoonChat**`🌒` \n Если вы не верите что этот бот создан для этого сервера, у нас еть копирайт на этого бота:  \n** https://www.copyrighted.com/work/iZl7wRmIpqrD60a9 ** \n\n Если вы будите красть код без разришения,это будет статья "Автороское Право" \n\n `Автор бота:` <@406343162651738112> \n `Другие авторы бота:` <@361951318929309707>,<@421030089732653057> \n `Создатель` **MoonChat**`🌒`: <@378915782270124033> \n\n **Версия бота:** `0.4.05` **beta**')
-        .setFooter(`[info-bot] | [${message.guild.name}]`)
+        .setFooter(`Команда: ;info-bot | ${message.guild.name}`)
         .setTimestamp();
     message.channel.send({embed});
 }
@@ -100,7 +100,7 @@ if (['ship'].includes(command)) {
         .setTitle("МАТЧМЕЙКИНГ")
         .setColor(message.member.highestRole.hexColor)
         .setDescription('▼***' + args[0] + '***\n▲***' + args[1] + '***\n\n:revolving_hearts:Любовь в проценатах: **' + percents + '%** `[' + line + ']`\n:revolving_hearts:' + '\n\nВердикт: **' + loveText + '**')
-        .setFooter(`[ship] | [${message.guild.name}]`)
+        .setFooter(`Команда: ;ship | ${message.guild.name}`)
         .setTimestamp();
     message.channel.send({embed});
 }
@@ -240,7 +240,7 @@ if(['sms'].includes(command)) {
           .setDescription(`${user} **обнял(а)** ${user1}`)
           .setImage(t.url)
           .setColor(message.member.highestRole.hexColor)
-    .setFooter(`[;hug @user] | [${message.guild.name}]`) 
+    .setFooter(`Команда: ;hug @user | ${message.guild.name}`) 
     .setTimestamp();
       msg.edit({embed}).then(function(message) {
               message.react("🙌")
@@ -261,7 +261,7 @@ if(['sms'].includes(command)) {
     .setDescription(`${user} **погладила по голове** <@476739055392915486>`)
     .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
-    .setFooter(`[;pat @user] | [${message.guild.name}]`) 
+    .setFooter(`Команда: ;pat @user | ${message.guild.name}`) 
     .setTimestamp(); 
 if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
         message.react("🤚")
@@ -270,7 +270,7 @@ let embed = new Discord.RichEmbed()
     .setDescription(`${user} **Погладила по голове** ${user1}`)
     .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
-    .setFooter(`[;pat @user] | [${message.guild.name}]`) 
+    .setFooter(`Команда: ;pat @user | ${message.guild.name}`) 
     .setTimestamp(); 
       msg.edit({embed}).then(function(message) {
               message.react("🤚")
@@ -294,7 +294,7 @@ let embed = new Discord.RichEmbed()
                             .setDescription(`${user} **поцеловал(а)** ${user1}`)
                             .setImage(arr['url'])
                             .setColor(message.member.highestRole.hexColor)
-                            .setFooter(`[;kiss @user] | [${message.guild.name}]`) 
+                            .setFooter(`Команда: ;kiss @user | [${message.guild.name}`) 
                             .setTimestamp();
                             msg.edit({embed
                             }).then(function(message) {
@@ -322,7 +322,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **ударил(а)** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;slap @user] | [${message.guild.name}]`)  
+                        .setFooter(`Команда: ;slap @user | ${message.guild.name}`)  
                         .setTimestamp();
                         msg.edit({embed
                         }).then(function(message) {
@@ -350,7 +350,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **тыкнул(а) в** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;poke @user] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;poke @user | ${message.guild.name}`) 
                         .setTimestamp();
                         msg.edit({embed
                         }).then(function(message) {
@@ -372,7 +372,7 @@ let embed = new Discord.RichEmbed()
                     let embed = new Discord.RichEmbed()
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;gasm] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;gasm | ${message.guild.name}`) 
                         .setTimestamp();
                     msg.edit({embed});
                 } catch (e) {
@@ -397,7 +397,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **прижал(а)ся к** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;cuddle @user] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;cuddle @user | ${message.guild.name}`) 
                         .setTimestamp();
                         msg.edit({embed
                         }).then(function(message) {
@@ -420,7 +420,7 @@ let embed = new Discord.RichEmbed()
                         .setTitle(message.author.username + ' Главное не дрочи...')
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;hentai] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;hentai | ${message.guild.name}`) 
                         .setTimestamp(); 
                     msg.edit({embed});
                 } catch (e) {
@@ -445,7 +445,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **пощекотал(а)** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;tickle @user] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;tickle @user | ${message.guild.name}`) 
                         .setTimestamp(); 
                         msg.edit({embed
                         }).then(function(message) {
@@ -469,7 +469,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **злится**`)
                         .setImage((urls[Math.floor(Math.random() * urls.length)]))
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;angry @user] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;angry @user | ${message.guild.name}`) 
                         .setTimestamp(); 
         if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                             message.react("😠")
@@ -478,7 +478,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **злится на** ${user1}`)
                         .setImage((urls[Math.floor(Math.random() * urls.length)]))
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;angry @user] | [${message.guild.name}]`) 
+                        .setFooter(`Команда: ;angry @user | ${message.guild.name}`)
                         .setTimestamp(); 
                         message.channel.send(embed
                         ).then(function(message) {
@@ -494,7 +494,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** себя`)
                         .setImage("https://78.media.tumblr.com/bbea36e4585df159eb4a339efc97313a/tumblr_ormo8ikFnO1wn2b96o1_500.gif")
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;bite @user] | [${message.guild.name}]`)  
+                        .setFooter(`Команда: ;bite @user | ${message.guild.name}`)
                         .setTimestamp(); 
         if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                             message.react("😱")
@@ -503,7 +503,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** ${user1}`)
                         .setImage(t.url)
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;bite @user] | [${message.guild.name}]`)  
+                        .setFooter(`Команда: ;bite @user | ${message.guild.name}`)
                         .setTimestamp(); 
                         message.channel.send(embed
                         ).then(function(message) {
@@ -519,7 +519,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **выкурил(а) сигарету.**`)
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;smoke] | [${message.guild.name}]`)  
+                        .setFooter(`Команда: ;smoke | ${message.guild.name}`)
                         .setTimestamp();
                     msg.edit({embed}).then(function(message) {
                             message.react("🚬")
@@ -534,7 +534,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **пошел(шла) спать.**`)//мне за это вообще платили??\\
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-			.setFooter(`[;sleep] | [${message.guild.name}]`)  
+			.setFooter(`Команда: ;sleep | ${message.guild.name}`)
 		     .setTimestamp();
                     msg.edit({embed}).then(function(message) {
                             message.react("💤")
@@ -549,7 +549,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **совершил(а) суицид..**`)
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`[;rip] | [${message.guild.name}]`)  
+                        .setFooter(`Команда: ;rip | ${message.guild.name}`) 
                         .setTimestamp();
                         msg.edit({embed}).then(function(message) {
                             message.react("☠")
@@ -564,7 +564,7 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **начал(а) танцевать.**`)
                         .setImage(t.url)
                         .setColor(message.member.highestRole.hexColor)
-			.setFooter(`[;dance] | [${message.guild.name}]`)  
+			.setFooter(`Команда: ;dance | ${message.guild.name}`)
 		     .setTimestamp();
                     msg.edit({embed}).then(function(message) {
                             message.react("👯")
@@ -599,7 +599,7 @@ let embed = new Discord.RichEmbed()
 .setDescription(`${user} **Дал(а) печение** ${user1}`)
 .setImage(urls[Math.floor(Math.random() * urls.length)])
 .setColor(message.member.highestRole.hexColor)
-.setFooter(`[;cookie @user] | [${message.guild.name}]`)  
+.setFooter(`Команда: ;cookie @user | ${message.guild.name}`)
 .setTimestamp();
 msg.edit({embed}).then(function(message) {
     message.react("🍪")
@@ -632,7 +632,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Ушел(ла) в печаль**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;sad] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;sad | ${message.guild.name}`) 
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("😢")
@@ -649,7 +649,7 @@ if (message.content.startsWith(p + `lick`)) {
 	.setDescription(`${user} **Лизнул(а)** ${user1}`)
 	.setImage(t.url)
 	.setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;lick @user] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;lick @user | ${message.guild.name}`)  
 	.setTimestamp();
 	msg.edit({embed}).then(function(message) {
 	message.react("😛")
@@ -666,7 +666,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Дал(а) поесть**${user1}`)
       .setImage(t.url)
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;nom @user] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;nom @user | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("🍱")
@@ -701,7 +701,7 @@ const urls = [
                     .setDescription(message.author+` **сказал(а) всем привет**`)
                     .setImage((urls[Math.floor(Math.random() * urls.length)]))
                     .setColor(message.member.highestRole.hexColor)
-                    .setFooter(`[;hi] | [${message.guild.name}]`)  
+                    .setFooter(`Команда: ;hi | ${message.guild.name}`) 
                     .setTimestamp(); 
     if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                         message.react("👋")
@@ -710,7 +710,7 @@ const urls = [
                     .setDescription(message.author+` **сказал(а) привет** `+message.mentions.users.first())
                     .setImage((urls[Math.floor(Math.random() * urls.length)]))
                     .setColor(message.member.highestRole.hexColor)
-                    .setFooter(`[;hi @user] | [${message.guild.name}]`)  
+                    .setFooter(`Команда: ;hi @user | ${message.guild.name}`)
                     .setTimestamp(); 
                     message.channel.send(embed
                     ).then(function(message) {
@@ -743,7 +743,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Выпил(а) пивасика**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-.setFooter(`[;beer] | [${message.guild.name}]`)  
+.setFooter(`Команда: ;beer | ${message.guild.name}`)
 .setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("🍺")
@@ -770,7 +770,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **выебал** ${user1}`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;sex @user] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;sex @user | ${message.guild.name}`) 
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("👄")
@@ -803,7 +803,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Выпил(а) кофе**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;coffee] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;coffee | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☕")
@@ -837,7 +837,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Подарил(а) цветы** ${user1}`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;flower @user] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;flower @user | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("💐")
@@ -905,7 +905,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **выпил(а) чая**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`[;tea] | [${message.guild.name}]`)  
+	.setFooter(`Команда: ;tea @user | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☕")
@@ -921,7 +921,7 @@ if (message.content.startsWith(p + `neko`)) {
                     .setDescription(`NEKOSSS! :D`)
                     .setImage(arr['url'])
                     .setColor(message.member.highestRole.hexColor)
-		    .setFooter(`[;lick @user] | [${message.guild.name}]`)
+		    .setFooter(`Команда: ;neko | ${message.guild.name}`)
 		    .setTimestamp();
                     msg.edit({embed
                     }).then(function(message) {
@@ -945,7 +945,7 @@ let embed = new Discord.RichEmbed()
       .setDescription(`**Тест бота**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor('RANDOM')
-      .setFooter(`[;||test] | [${message.guild.name}]`)
+      .setFooter(`Команда: ;||test | ${message.guild.name}`)
 		    .setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☑")
@@ -958,8 +958,6 @@ let embed = new Discord.RichEmbed()
 		const embed = new Discord.RichEmbed()
 			.setColor(message.member.highestRole.hexColor)
 			.setDescription(say_poll_embed)
-			.setFooter(`[;poll] | [${message.guild.name}]`)
-		    	.setTimestamp();	
             message.channel.send({
                 embed
             }).then(function(message) {
@@ -973,7 +971,7 @@ let embed = new Discord.RichEmbed()
         const embed = new Discord.RichEmbed()
     .setColor(message.member.highestRole.hexColor)
     .setDescription('\n **Pong!** `' + `${Date.now() - message.createdTimestamp}` + ' ms` \n')
-    .setFooter(`[;ping] | [${message.guild.name}]`)
+    .setFooter(`Команда: ;ping | ${message.guild.name}`)
 		    .setTimestamp();  
     message.channel.send({embed});
     }

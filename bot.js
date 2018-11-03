@@ -461,10 +461,7 @@ let embed = new Discord.RichEmbed()
 		message.delete();
 		 let user = message.author;
         let user1 = message.mentions.users.first();
-		const urls = [
-			"https://media1.tenor.com/images/3304de583bb3bb948ba0d32c0ca252f9/tenor.gif",
-			"https://media.giphy.com/media/2kJY941e6bBVm/giphy.gif"
-		];
+		const urls = ['https://data.whicdn.com/images/33545835/original.gif', 'http://i.imgur.com/P8oGR3u.gif', 'https://data.whicdn.com/images/283566570/original.gif', 'https://i.pinimg.com/originals/ac/e0/61/ace061704cb13602222916265471073e.gif', 'http://media.giphy.com/media/hFVI29iuk2wFy/giphy.gif', 'https://media.giphy.com/media/o7C2BKtp6gSd2/giphy.gif', 'https://i.pinimg.com/originals/83/32/8b/83328b8fd0238f801e61ca07faa6a000.gif', 'https://data.whicdn.com/images/104935742/original.gif', 'http://roxannemodafferi.net/RBlog/wp-content/uploads/2018/05/angry-anime-girl-gif.gif', 'https://i.pinimg.com/originals/13/e2/76/13e2761232d7671a9c2663aca5b9dbf2.gif']
 		const selfbite = new Discord.RichEmbed()
                         .setDescription(`${user} **злится**`)
                         .setImage((urls[Math.floor(Math.random() * urls.length)]))

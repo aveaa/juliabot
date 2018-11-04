@@ -60,7 +60,25 @@ client.on("guildMemberRemove", member => {
 client.on('message', message => {
     const args = message.content.slice(p.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
+	
 	if(message.content.startsWith(';')) {message.delete().catch(err => {})}
+	let media = [503195594660249611, 501734694245892108, 504120699414249477, 501734734364147740, 490473227106385920, 504120541502898188, 504120979518259201, 501734850668265492];
+	if([message.channel.id].includes(media)) {
+		if(!message.attachments.first()) {
+			message.delete();
+		} else {
+			if(message.author.bot) return;
+			message.react("👍")
+			message.react("👎")
+		}
+		return;
+	}
+	if(message.channel.id === '472968393708929024') {
+		if(message.attachments.first()) {
+			message.delete(60000)
+		}
+	}
+	
 if(message.content.startsWith(p + 'say')) {
     let say = message.content.slice((p + 'say').length);
     const embed = new Discord.RichEmbed()

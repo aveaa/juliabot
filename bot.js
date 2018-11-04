@@ -71,13 +71,13 @@ client.on('message', message => {
 	
 	if(message.content.startsWith(';')) {message.delete().catch(err => {})}
 	if(med.has(message.channel.id)) {
-		console.log('m detected')
 		if(message.attachments.first()) {
 			if(message.author.bot) {return;}
-			console.log('reactions')
+			console.log('image detected')
 			message.react("👍")
 			message.react("👎")
 		} else {
+			console.log('message detected')
 			message.delete()
 		}
 	}

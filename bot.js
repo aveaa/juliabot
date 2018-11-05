@@ -58,7 +58,7 @@ client.on("guildMemberRemove", member => {
 		     })
 });
 
-let media = ['503195594660249611', '501734694245892108', '504120699414249477', '501734734364147740', '490473227106385920', '504120541502898188', '504120979518259201', '501734850668265492'];
+let media = ['503195594660249611', '501734694245892108', '504120699414249477', '501734734364147740', '504120541502898188', '504120979518259201', '501734850668265492'];
 	let med = new Set();
 	media.forEach(m =>{
 		med.add(m)
@@ -72,7 +72,7 @@ client.on('message', message => {
 	if(message.content.startsWith(';')) {message.delete().catch(err => {})}
 	if(med.has(message.channel.id)) {
 		if(message.attachments.first()) {
-			if(message.author.bot) {return;}
+			if(message.author.bot) return;
 			console.log('image detected')
 			message.react("👍")
 			message.react("👎")
@@ -777,6 +777,7 @@ if (message.content.startsWith(p + 'sex')) {
     if (!message.channel.nsfw) return message.channel.send("**Иди в nsfw!**");
     let user = message.author;
     let user1 = message.mentions.users.first();
+	if(!user1) { user1=client.user }
     message.channel.send('Загрузка...').then(msg => {
         const urls = [
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3VG0hwWZdCDbyyBRyYKQ6A5YLvV64SaQEFhb8-f3gs_TQJIwdbQ",

@@ -36,16 +36,13 @@ client.on('ready', () => {
 console.log("ready")	
 });
 client.on("guildMemberAdd", member => {
-	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
-	  	      .setAuthor(member.user.tag, member.user.displayAvatarURL)
-		      .setTitle(`Добро пожаловать на ${member.guild.name}`, 'https://discord-server.com/472966874133692426')
-		      .setDescription(`**Приветствуем тебя ${member} на нашем космическом сервере \nТут ты найдешь разные конкурсы, добрую администрацию, много разных каналов, нашу собственную валюту и многое другое**`)
-		      .addField("Важные каналы:", "<#490472395140759553>  - **__канал с правилами сервера__** \n<#490472095763922954>  - **__канал с информацией сервера__** \n<#506806612317437952> - **__канал со всеми новостями сервера__** \n<#506241187506683945> - **__канал с конкурсами сервера__**")
-		      .setImage("https://media.discordapp.net/attachments/442527699936870401/507536479577440259/MOSHED-2018-11-1-15-44-49.gif")
-		      .setThumbnail(member.user.displayAvatarURL)
-		      .setColor("GREEN")
-		      .setFooter(`Теперь нас ${member.guild.memberCount}`)
-		     })
+	client.channels.get('472968393708929024').send(new Discord.RichEmbed()
+.setTitle(`**Welcome to ${member.guild.name}**`)
+.setDescription(`**Приветствуем нового участника ${member}**\n\nДобро пожаловать к нам в жаркое логово феникса, где тебя ждет много всего: наша валюта, наш бот, лотереи, свои смайлики и многое другое!`)
+.addField("Важные каналы:","**__<#490472095763922954> -__ канал с информацией сервера__\n<#490472395140759553> - __канал с правилами сервера**")
+.addField("**Дополнительные каналы:**","\n__<#490472423062503425> - __**канал с бесплатными ролями**__\n<#495943903371984897> - __**канал с розыгрышами нашей валюты**__\n<#506806612317437952> - __**канал с новостями которые произошли на сервере**__")
+.setThumbnail(member.user.displayAvatarURL)
+.setImage("https://images-ext-2.discordapp.net/external/ugBhAbbRTr88pqvuFnZULWEH7pPICghvAVY12Ua5j-E/https/media.discordapp.net/attachments/442527699936870401/507536479577440259/MOSHED-2018-11-1-15-44-49.gif"))
 });
 client.on("guildMemberRemove", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()

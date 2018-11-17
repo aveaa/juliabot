@@ -37,22 +37,23 @@ console.log("ready")
 });
 client.on("guildMemberAdd", member => {
 	client.channels.get('472968393708929024').send(new Discord.RichEmbed()
+						      .setAuthor('Новое Уведомление!', member.guild.iconURL)
 .setTitle(`Welcome to ${member.guild.name}`)
 .setDescription(`**Приветствуем нового участника ${member}**\n\nДобро пожаловать к нам в жаркое логово феникса, где тебя ждет много всего: наша валюта, наш бот, лотереи, свои смайлики и многое другое!`)
 .addField("Важные каналы:","**__<#490472095763922954> - канал с информацией сервера\n<#490472395140759553> - канал с правилами сервера__**")
 .addField("**Дополнительные каналы:**","__<#490472423062503425> - **канал с бесплатными ролями\n<#495943903371984897> - канал с розыгрышами нашей валюты\n<#506806612317437952> - канал с новостями которые произошли на сервере**__")
 .setThumbnail(member.user.displayAvatarURL)
 .setColor("GREEN")
-.setImage("https://images-ext-2.discordapp.net/external/ugBhAbbRTr88pqvuFnZULWEH7pPICghvAVY12Ua5j-E/https/media.discordapp.net/attachments/442527699936870401/507536479577440259/MOSHED-2018-11-1-15-44-49.gif"))
+.setImage("https://media.discordapp.net/attachments/442527699936870401/513256993209843732/fenix_welcome.png"))
 });
 client.on("guildMemberRemove", member => {
 	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
-		      .setAuthor(member.user.tag, member.user.displayAvatarURL)
+		      .setAuthor('Новое Уведомление!', member.guild.iconURL)
 		      .setTitle(`Прощай ${member.user.tag}`)
 		      .setDescription(`${member.user.username} решил покинуть наc! :wave:`)
 		      .setColor("RED")
 		      .setThumbnail(member.user.displayAvatarURL)
-		       .setFooter(`Теперь нас ${member.guild.memberCount}`)
+		       .setFooter(`Теперь нас ${member.guild.memberCount} на сервере`)
 		     })
 });
 
@@ -102,125 +103,6 @@ if(message.content.startsWith(p + `info-bot`)) {
         .setTimestamp();
     message.channel.send({embed});
 }
-if (['ship'].includes(command)) {
-    if (!args[0]) args[0] = message.guild.members.random();
-    if (!args[1]) args[1] = message.author
-    if (args[0].length > 30 || args[1].length > 30) return message.reply('✖ `Ошибка. Причина:` **Не может быть длиннее 30 символов**');
-    let loveText
-    let line
-    let percents = randomInteger(0, 100)
-    if (percents <= 99) {loveText = 'Под заебись'; line = '❤❤❤❤❤❤❤❤'; }
-    if (percents <= 89) {loveText = 'Превосходно! :heartpulse:'; line = '❤❤❤❤❤❤❤';}
-    if (percents <= 79) {loveText = '( ͡° ͜ʖ ͡°)'; line = '❤❤❤❤❤❤❤';}
-    if (percents <= 69) {loveText = 'По братски'; line = '❤❤❤❤❤❤';}
-    if (percents <= 59) {loveText = 'Неплохо :confused:'; line = '❤❤❤❤❤';}
-    if (percents <= 49) {loveText = 'Средне :thinking:'; line = '❤❤❤❤';}
-    if (percents <= 49) {loveText = 'Плохо :frowning2:'; line = '❤❤❤';}
-    if (percents <= 29) {loveText = ':poop:'; line = '❤❤';}
-    if (percents <= 19) {loveText = 'Ну блять,нет слов...'; line = '❤';}
-    if (percents <= 9) {loveText = 'Всё хуева'; line = '□□□□□□□□□□';}
-    if (percents >= 100) {loveText = 'ЗАЕБИСЬ!!!!!'; line = '❤❤❤❤❤❤❤❤❤❤'; percents = 100;}
-    const embed = new Discord.RichEmbed()
-        .setTitle("МАТЧМЕЙКИНГ")
-        .setColor(message.member.highestRole.hexColor)
-        .setDescription('▼***' + args[0] + '***\n▲***' + args[1] + '***\n\n:revolving_hearts:Любовь в проценатах: **' + percents + '%** `[' + line + ']`\n:revolving_hearts:' + '\n\nВердикт: **' + loveText + '**')
-        .setFooter(`Команда: ;ship | ${message.guild.name}`)
-        .setTimestamp();
-    message.channel.send({embed});
-}
-if (['rsp'].includes(command)) {        
-    let userChoice;
-            if (!args[0]) {
-                message.channel.send(message.author + ', ⛔ Ошибка. Причина: **Вы забыли указать что вы выбираете, камень, ножницы или бумагу**');
-                return;
-            }
-            else if (['камень', 'rock', 'r', 'к'].includes(args[0].toLowerCase())) {
-                userChoice = 'камень';
-            }
-            else if (['бумагу', 'бумага', 'paper', 'p', 'б'].includes(args[0].toLowerCase())) {
-                userChoice = 'бумагу';
-            }
-            else if (['scissors', 'ножницы', 's', 'н'].includes(args[0].toLowerCase())) {
-                userChoice = 'ножницы';
-            } else {
-                userChoice = 'Incorrect';
-            }
-            let computerChoice = Math.random();
-            if (computerChoice < 0.34) {
-                computerChoice = "камень";
-            } else if(computerChoice <= 0.67) {
-                computerChoice = "бумагу";
-            } else {
-                computerChoice = "ножницы";
-            }
-            function rspCW(userChoice, computerChoice) {
-                let award = randomInteger(1, 3);
-                if (userChoice === computerChoice) {
-                    return "**Ничья!**😀";
-                }
-                else if(userChoice === "камень") {
-                    if(computerChoice === "ножницы") {
-                        return "**Ты выиграл(а)!** 😢";
-                    }
-                    else if (computerChoice === "бумагу") {
-                        return "**Ты проиграл(а).** 😎";
-                    }
-                }
-                else if(userChoice === "бумагу") {
-                    if(computerChoice === "камень") {
-                        return "**Ты выиграл(а)!** 😢";
-                    } else if (computerChoice === "ножницы") {
-                        return "**Ты проиграл(а).** 😎";
-                    }
-                }
-                else if(userChoice === "ножницы") {
-                    if(computerChoice === "бумагу") {
-                        return "**ты выиграл(а)!** 😢";
-                    } else if (computerChoice === "камень") {
-                        return "**ты проиграл(а).** 😎";
-                    }
-                }
-                else if (userChoice === 'Incorrect') {
-                    return "**Ты не выбрал ни камень, ни ножницы, ни бумагу**";
-                }
-            }
-            if (userChoice === 'Incorrect') {
-                message.channel.send(message.author + ", " + rspCW(userChoice, computerChoice))
-            }
-            else {
-            message.channel.send('**Я выбрала** ' + computerChoice + '. ' + message.author + ", " + rspCW(userChoice, computerChoice) + ' **Ты выбрал\(а\)** ' + userChoice + ' **Я выбрала** ' + computerChoice);
-         }
-        };
-if (['8ball'].includes(command)) {
-    let numOfAnswer = randomInteger(1, 11);
-    if (!args[0]) {
-        message.reply('Ошибка. Причина: **Не указан аргумент**\n\nПравильное использование:\n;8ball `<вопрос>`'); 
-        return;
-    }
-    if (numOfAnswer === 1) message.reply('Без сомннения!');
-    else if (numOfAnswer === 2) message.reply('Да, конечно');
-    else if (numOfAnswer === 3) message.reply('Да');
-    else if (numOfAnswer === 4) message.reply('В принципе да');
-    else if (numOfAnswer === 5) message.reply('Возможно');
-    else if (numOfAnswer === 6) message.reply('Абсолютно нет!');
-    else if (numOfAnswer === 7) message.reply('Никак нет');
-    else if (numOfAnswer === 8) message.reply('Нет');
-    else if (numOfAnswer === 9) message.reply('Неа');
-    else if (numOfAnswer === 10) message.reply('Cомневаюсь');
-    else message.reply('Спроси позднее, я не знаю');
-}
-if(['sms'].includes(command)) {
-    let user = message.mentions.members.first(); 
-        if (!user) {
-            message.delete
-            message.author.send(message.author + ', Ошибка. Причина: **Не указан получатель сообщения**');
-            return
-        }
-        const sendMessage = args.join(" ");
-        let msg = user.send('**Вам пришло смс от** '+message.author.username + '. \n**Он сказал(а):** '+ sendMessage.replace(user, '')).catch(()=>{message.reply('***Ошибка. Причина: не указано сообщение***');
-        })
-        message.delete().catch(O_o=>{});
-    }
 
 	if (message.content.startsWith(admp + `eval`) && (message.author.id === "406343162651738112" || message.author.id === "378915782270124033")) {
 		const code = message.content.split(" ").slice(1).join(" ");
@@ -405,34 +287,7 @@ let embed = new Discord.RichEmbed()
             });
         });
     }
-    if (message.content.startsWith(p + `cuddle`)) {
-        message.delete();
-        let user = message.author;
-        let user1 = message.mentions.users.first();
-        if (!user1 || user1.id === user.id) {
-            user = client.user;
-            user1 = message.author;
-        }
-        message.channel.send('Загрузка...').then(msg => {
-            request('https://nekos.life/api/v2/img/cuddle', function (error, response, body) {
-                try {
-                    let arr = JSON.parse(body);
-                    let embed = new Discord.RichEmbed()
-                        .setDescription(`${user} **прижал(а)ся к** ${user1}`)
-                        .setImage(arr['url'])
-                        .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;cuddle @user | ${message.guild.name}`) 
-                        .setTimestamp();
-                        msg.edit({embed
-                        }).then(function(message) {
-                            message.react("👐")
-                        }).catch(function() {});
-                        } catch (e) {
-                       console.log(e)
-                 }
-            });
-        });
-    }
+
     if (message.content.startsWith(p + `hentai`)) {
         if (!message.channel.nsfw) return message.channel.send("**Иди в nsfw!**");
         message.delete();
@@ -449,34 +304,6 @@ let embed = new Discord.RichEmbed()
                     msg.edit({embed});
                 } catch (e) {
                console.log(e)
-                 }
-            });
-        });
-    }
-    if (message.content.startsWith(p + `tickle`)) {
-        message.delete();
-        let user = message.author;
-        let user1 = message.mentions.users.first();
-        if (!user1 || user1.id === user.id) {
-            user = bot.user;
-            user1 = message.author;
-        }
-        message.channel.send('Загрузка...').then(msg => {
-            request('https://nekos.life/api/v2/img/tickle', function (error, response, body) {
-                try {
-                    let arr = JSON.parse(body);
-                    let embed = new Discord.RichEmbed()
-                        .setDescription(`${user} **пощекотал(а)** ${user1}`)
-                        .setImage(arr['url'])
-                        .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;tickle @user | ${message.guild.name}`) 
-                        .setTimestamp(); 
-                        msg.edit({embed
-                        }).then(function(message) {
-                            message.react("🤣")
-                        }).catch(function() {});
-                        } catch (e) {
-                       console.log(e)
                  }
             });
         });
@@ -577,56 +404,6 @@ let embed = new Discord.RichEmbed()
                         }).catch(function() {});
                   });
                   }
-	if (message.content.startsWith(p + `dance`)) {
-        let user = message.author;
-				      message.channel.send('Загрузка...').then(msg => {
-					      weeb.random('dance', { hidden: false, nsfw: false, filetype: 'gif'}).then(t => {
-		     let embed = new Discord.RichEmbed()
-                        .setDescription(`${user} **начал(а) танцевать.**`)
-                        .setImage(t.url)
-                        .setColor(message.member.highestRole.hexColor)
-			.setFooter(`Команда: ;dance | ${message.guild.name}`)
-		     .setTimestamp();
-                    msg.edit({embed}).then(function(message) {
-                            message.react("👯")
-                        }).catch(function() {});
-        });
-				      });
-    }
-    if (message.content.startsWith(p + `cookie`)) {
-        let user = message.author;
-        let user1 = message.mentions.users.first();
-        message.channel.send('Загрузка...').then(msg => {
-            const urls = [
-"http://36.media.tumblr.com/7bd24d753128822e0652319b385f68ed/tumblr_notv05MRNm1s9pgrdo1_1280.jpg",
-"https://thumbs.gfycat.com/GoodPlasticEyelashpitviper-max-1mb.gif",
-"https://media.giphy.com/media/SKiPNljqH8Ub6/giphy.gif",
-"https://media.giphy.com/media/O8XZwrrU4NQC4/giphy-facebook_s.jpg",
-"https://www.1999.co.jp/itbig35/10358248.jpg",
-"https://honeysanime.com/wp-content/uploads/2015/09/sailor-moon-usagi-cookie--560x377.png",
-"http://4.bp.blogspot.com/-fkkpC6FFETQ/T8S0ro_WHeI/AAAAAAAAA8E/q95UOz7jDQg/s1600/anime+cookiess_15.jpg",
-"http://i.imgur.com/u4HdC.jpg",
-"http://dessertrecipescorner.com/wp-content/uploads/2017/01/crunchy-and-adorable-checkerboar.jpg",
-"https://blog.manga.tv/wp-content/uploads/2013/02/Cookie-Totoro-cookies-mon-voisin-my-neighbour-ghibli-miyazaki-anime-online-streaming-manga-tv-legal-gratuit-8.jpg",
-"https://data.whicdn.com/images/72988865/large.png",
-"https://data.whicdn.com/images/276671856/original.gif",
-"http://favim.com/media/uploads/images/orig/140321/anime-food-Favim.com-1522596.gif",
-"https://i.pinimg.com/originals/c5/d0/ab/c5d0ab213a38c377d1139ee57fa62e32.jpg",
-"http://farm3.staticflickr.com/2894/9330100800_8535169e0f_b.jpg",
-"http://i.imgur.com/E1AWI.jpg",
-"https://itadakimasuanime.files.wordpress.com/2013/03/checkerboard-cookies-saint-seiya.jpg"
-];
-let embed = new Discord.RichEmbed()
-.setDescription(`${user} **Дал(а) печение** ${user1}`)
-.setImage(urls[Math.floor(Math.random() * urls.length)])
-.setColor(message.member.highestRole.hexColor)
-.setFooter(`Команда: ;cookie @user | ${message.guild.name}`)
-.setTimestamp();
-msg.edit({embed}).then(function(message) {
-    message.react("🍪")
-}).catch(function() {});
-});
-}
 if (message.content.startsWith(p + `sad`)) {
     let user = message.author;
     message.channel.send('Загрузка...').then(msg => {
@@ -678,23 +455,7 @@ if (message.content.startsWith(p + `lick`)) {
 	});
     });
 }
-if (message.content.startsWith(p + `nom`)) {
-    let user = message.author;
-    let user1 = message.mentions.users.first();
-    message.channel.send('Загрузка...').then(msg => {
-        weeb.random('nom', { hidden: false, nsfw: false, filetype: 'gif' }).then(t => {
-let embed = new Discord.RichEmbed()
-      .setDescription(`${user} **Дал(а) поесть**${user1}`)
-      .setImage(t.url)
-      .setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;nom @user | ${message.guild.name}`)
-	.setTimestamp();
-  msg.edit({embed}).then(function(message) {
-          message.react("🍱")
-      }).catch(function() {});
-});
-    });
-}
+
 if (message.content.startsWith(p + `hi`)) {
     message.delete();
 const urls = [
@@ -832,40 +593,6 @@ let embed = new Discord.RichEmbed()
       }).catch(function() {});
 });
 }
-if (message.content.startsWith(p + `flower`)) {
-    let user = message.author;
-    let user1 = message.mentions.users.first();
-    message.channel.send('Загрузка...').then(msg => {
-        const urls = [
-"https://gifer.com/i/ODsd.gif",//1
-"https://vignette.wikia.nocookie.net/disney/images/d/d6/Tumblr_na3a2pu2N81ssaw6co2_500.gif/revision/latest?cb=20150214072201",//2
-"https://data.whicdn.com/images/287290280/original.gif",//3
-"https://gifer.com/i/3aXw.gif",//4
-"https://i.pinimg.com/originals/fe/1b/3d/fe1b3d3f1859e3e114a523f022181947.gif",//5
-"http://gifimage.net/wp-content/uploads/2017/09/anime-flower-gif-10.gif",//6
-"http://www.animatedimages.org/data/media/50/animated-flower-image-0064.gif",//7
-"https://uploads.disquscdn.com/images/3cd22412e5ff620ffe1b97097ac40252bbe5944db339a9811d5fb7b4a1e2253f.gif",//8
-"https://cdn120.picsart.com/212974394002202.gif?r1024x1024",//9
-"https://thumbs.gfycat.com/CourageousDamagedEkaltadeta-max-1mb.gif",//10
-"https://i.pinimg.com/originals/d9/c0/84/d9c084bc7cbef715350da856531f0583.gif",//11
-"https://media1.tenor.com/images/aa1ffffcc9fbb3742b719f84f48dc618/tenor.gif?itemid=9490271",//12
-"https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/0/0e/Flower.gif/revision/latest?cb=20161228022902",//13
-"https://i.pinimg.com/originals/8e/9b/af/8e9bafb5a07a3d340c906c835d186e8c.gif",//14
-"http://blvcccvrd.com/images/spring-flower-cartoon-pictures-7.gif",//15
-"https://78.media.tumblr.com/71e352c8a081e7bb09041a12adda9cf6/tumblr_p7rti3n5Jt1wg7k9po1_500.gif",//16
-"http://s6.favim.com/orig/151201/anime-flowers-gif-girl-Favim.com-3684436.gif"//17
-];
-let embed = new Discord.RichEmbed()
-      .setDescription(`${user} **Подарил(а) цветы** ${user1}`)
-      .setImage(urls[Math.floor(Math.random() * urls.length)])
-      .setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;flower @user | ${message.guild.name}`)
-	.setTimestamp();
-  msg.edit({embed}).then(function(message) {
-          message.react("💐")
-      }).catch(function() {});
-});
-}
 /*
 if (message.content.startsWith(p + `название команды`)) {
     let user = message.author;
@@ -1000,7 +727,7 @@ let embed = new Discord.RichEmbed()
 //help 
 if(message.content.startsWith(p + `help`)) {
     message.delete();
-    message.author.sendCode("css", ";hug [user]          обнять человека \n;pat [user]          погладить человека \n;kiss [user]         поцеловать человека \n;poke [user]         тыкнуть человека \n;cuddle [user]       прижатся к человека \n;tickle [user]       пощекотать человека \n;angry               начать злится \n;sleep               пойти спать \n;smoke               покурить сигаретку \n;dance               начать танцевать \n;rip                 пойти и умереть \n;hi                  поприветствовать всех \n;sad                 уйти в печаль \n;beer                начать бухать \n;coffee              выпить чашку кофе \n;tea                 выпить чашку чая \n;bute [user]         укусить человека \n;lick [user]         лизнуть человека \n;cookie [user]       дать печеньку человеку \n;nom [user]          дать поесть человеку \n;slap [user]         ударить человека \n;flowet [user]       подарить цветы человеку \n\n;sms [user]          написать смс человеку \n;ship                посмотреть любовь \n;8ball               ответить на вопрос \n;rsp                 поиграть в игру к.н.б. \n\n;ping                посмотреть пинг \n;help                посмотреть команды \n;info-bot            узнать инфу о боте \n\n;gasm                испытать оргазм \n;hentai              посмотреть хентай \n;sex [user]          выебать человека").catch(err => message.reply("похоже у вас заблокированы личные сообщения"))
+    message.author.sendCode("css", ";hug [user]          обнять человека \n;pat [user]          погладить человека \n;kiss [user]         поцеловать человека \n;poke [user]         тыкнуть человека \n;angry               начать злится \n;sleep               пойти спать \n;smoke               покурить сигаретку \n;rip                 пойти и умереть \n;hi                  поприветствовать всех \n;sad                 уйти в печаль \n;beer                начать бухать \n;coffee              выпить чашку кофе \n;bute [user]         укусить человека \n;lick [user]         лизнуть человека \n;slap [user]         ударить человека \n\n;help                посмотреть команды \n;info-bot            узнать инфу о боте \n\n;hentai              посмотреть хентай \n;sex [user]          выебать человека").catch(err => message.reply("похоже у вас заблокированы личные сообщения"))
 }});
 //статус
     client.on('ready', () => {

@@ -7,7 +7,7 @@ if (old_.voiceChannelID) new_.removeRole(id).catch()
 if (new_.voiceChannelID) new_.addRole(id).catch()
 });*/
 let p = "j!"
-let admp = "@!"
+let admp = "j@"
 //ID ролей
 let Oxpana = '477045054045814793';
 let Kosmo = '477045398263955456';
@@ -650,7 +650,9 @@ let embed = new Discord.RichEmbed()
 //help 
 if(message.content.startsWith(p + `help`)) {
     message.delete();
-    message.author.sendCode("css", ";hug [user]          обнять человека \n;pat [user]          погладить человека \n;kiss [user]         поцеловать человека \n;poke [user]         тыкнуть человека \n;angry               начать злится \n;sleep               пойти спать \n;smoke               покурить сигаретку \n;rip                 пойти и умереть \n;hi                  поприветствовать всех \n;sad                 уйти в печаль \n;beer                начать бухать \n;coffee              выпить чашку кофе \n;bute [user]         укусить человека \n;lick [user]         лизнуть человека \n;slap [user]         ударить человека \n\n;help                посмотреть команды \n;info-bot            узнать инфу о боте \n\n;hentai              посмотреть хентай \n;sex [user]          выебать человека").catch(err => message.reply("похоже у вас заблокированы личные сообщения"))
+    message.channel.send(new Discord.RichEmbed()
+	    .setColor('BLURPLE')
+	    .setDescription("``` j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bute [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\n;help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          выебать человека ```"))
 }});
 //статус
     client.on('ready', () => {

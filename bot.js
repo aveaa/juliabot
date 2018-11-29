@@ -652,7 +652,7 @@ if(message.content.startsWith(p + `help`)) {
     message.delete();
     message.channel.send(new Discord.RichEmbed()
 	    .setColor('BLURPLE')
-	    .setDescription("``` j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bute [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\n;help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          выебать человека ```"))
+	    .setDescription("```j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bute [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\nj!help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          выебать человека ```"))
 }});
 //статус
     client.on('ready', () => {

@@ -6,7 +6,7 @@ let id = '476978677872328705';
 if (old_.voiceChannelID) new_.removeRole(id).catch()
 if (new_.voiceChannelID) new_.addRole(id).catch()
 });*/
-let p = ";"
+let p = "j!"
 let admp = "@!"
 //ID ролей
 let Oxpana = '477045054045814793';
@@ -14,7 +14,6 @@ let Kosmo = '477045398263955456';
 let Smotri = '477045398263955456';
 let Chmute = '477065648544153600';
 let VoiceMute = '477065632546816000';
-const server_name = 'Fenix 🔥 '
 
 //Функции
 function randomInteger(min, max) {
@@ -35,56 +34,13 @@ const weeb = new wrapper("Wolke "+process.env.WEEB_TOKEN);
 client.on('ready', () => {
 console.log("ready")	
 });
-client.on("guildMemberAdd", member => {
-	client.channels.get('472968393708929024').send(new Discord.RichEmbed()
-						      .setAuthor('Новое Уведомление!', member.guild.iconURL)
-.setTitle(`Welcome to ${member.guild.name}`)
-.setDescription(`**Приветствуем нового участника ${member}**\n\nДобро пожаловать к нам в жаркое логово феникса, где тебя ждет много всего: наша валюта, наш бот, лотереи, свои смайлики и многое другое!`)
-.addField("Важные каналы:","**__<#490472095763922954> - канал с информацией сервера\n<#490472395140759553> - канал с правилами сервера__**")
-.addField("**Дополнительные каналы:**","__<#490472423062503425> - **канал с бесплатными ролями\n<#495943903371984897> - канал с розыгрышами нашей валюты\n<#506806612317437952> - канал с новостями которые произошли на сервере**__")
-.setThumbnail(member.user.displayAvatarURL)
-.setColor("GREEN")
-.setImage("https://media.discordapp.net/attachments/442527699936870401/513256993209843732/fenix_welcome.png"))
-});
-client.on("guildMemberRemove", member => {
-	client.channels.get('472968393708929024').send({embed: new Discord.RichEmbed()
-		      .setAuthor('Новое Уведомление!', member.guild.iconURL)
-		      .setTitle(`Прощай ${member.user.tag}`)
-		      .setDescription(`${member.user.username} решил покинуть наc! :wave:`)
-		      .setColor("RED")
-		      .setThumbnail(member.user.displayAvatarURL)
-		       .setFooter(`Теперь нас ${member.guild.memberCount} на сервере`)
-		     })
-});
 
-let media = ['503195594660249611', '501734694245892108', '504120699414249477', '501734734364147740', '504120541502898188', '504120979518259201', '501734850668265492'];
-	let med = new Set();
-	media.forEach(m =>{
-		med.add(m)
-	});
 
 
 client.on('message', message => {
     const args = message.content.slice(p.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 	
-	if(message.content.startsWith(';')) {message.delete().catch(err => {})}
-	if(med.has(message.channel.id)) {
-		if(message.attachments.first()) {
-			if(message.author.bot) return;
-			console.log('image detected')
-			message.react("👍")
-			message.react("👎")
-		} else {
-			console.log('message detected')
-			message.delete()
-		}
-	}
-	if(message.channel.id === '472968393708929024') {
-		if(message.attachments.first()) {
-			message.delete(60000)
-		}
-	}
 	
 if(message.content.startsWith(p + 'say')) {
     let say = message.content.slice((p + 'say').length);
@@ -94,17 +50,8 @@ if(message.content.startsWith(p + 'say')) {
     .setTimestamp();
     message.channel.send({embed});
 }
-if(message.content.startsWith(p + `info-bot`)) {
-    const embed = new Discord.RichEmbed()
-        .setTitle("**Информация о боте**")
-        .setColor(message.member.highestRole.hexColor)
-        .setDescription('Бот создан для сервера **MoonChat**`🌒` \n Если вы не верите что этот бот создан для этого сервера, у нас еть копирайт на этого бота:  \n** https://www.copyrighted.com/work/iZl7wRmIpqrD60a9 ** \n\n Если вы будите красть код без разришения,это будет статья "Автороское Право" \n\n `Автор бота:` <@406343162651738112> \n `Другие авторы бота:` <@361951318929309707>,<@421030089732653057> \n `Создатель` **MoonChat**`🌒`: <@378915782270124033> \n\n **Версия бота:** `0.4.05` **beta**')
-        .setFooter(`Команда: ;info-bot | ${message.guild.name}`)
-        .setTimestamp();
-    message.channel.send({embed});
-}
 
-	if (message.content.startsWith(admp + `eval`) && (message.author.id === "406343162651738112" || message.author.id === "378915782270124033")) {
+	if (message.content.startsWith(admp + `eval`) && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
 		const code = message.content.split(" ").slice(1).join(" ");
         try {
          let evaled = eval(code);
@@ -146,7 +93,6 @@ if(message.content.startsWith(p + `info-bot`)) {
           .setDescription(`${user} **обнял(а)** ${user1}`)
           .setImage(t.url)
           .setColor(message.member.highestRole.hexColor)
-    .setFooter(`Команда: ;hug @user | ${message.guild.name}`) 
     .setTimestamp();
       msg.edit({embed}).then(function(message) {
               message.react("🙌")
@@ -167,7 +113,6 @@ if(message.content.startsWith(p + `info-bot`)) {
     .setDescription(`${user} **погладила по голове** <@476739055392915486>`)
     .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
-    .setFooter(`Команда: ;pat @user | ${message.guild.name}`) 
     .setTimestamp(); 
 if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
         message.react("🤚")
@@ -176,7 +121,6 @@ let embed = new Discord.RichEmbed()
     .setDescription(`${user} **Погладила по голове** ${user1}`)
     .setImage(t.url)
     .setColor(message.member.highestRole.hexColor)
-    .setFooter(`Команда: ;pat @user | ${message.guild.name}`) 
     .setTimestamp(); 
       msg.edit({embed}).then(function(message) {
               message.react("🤚")
@@ -228,7 +172,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **ударил(а)** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;slap @user | ${message.guild.name}`)  
                         .setTimestamp();
                         msg.edit({embed
                         }).then(function(message) {
@@ -256,7 +199,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **тыкнул(а) в** ${user1}`)
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;poke @user | ${message.guild.name}`) 
                         .setTimestamp();
                         msg.edit({embed
                         }).then(function(message) {
@@ -269,7 +211,7 @@ let embed = new Discord.RichEmbed()
         });
     }
     if (message.content.startsWith(p + `gasm`)) {
-        if (!message.channel.nsfw) return message.channel.send("**Иди в nsfw!**");
+        if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
         message.delete();
         message.channel.send('Загрузка...').then(msg => {
     request('https://nekos.life/api/v2/img/gasm', function (error, response, body) {
@@ -289,17 +231,15 @@ let embed = new Discord.RichEmbed()
     }
 
     if (message.content.startsWith(p + `hentai`)) {
-        if (!message.channel.nsfw) return message.channel.send("**Иди в nsfw!**");
+        if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
         message.delete();
         message.channel.send('Загрузка...').then(msg => {
     request('https://nekos.life/api/v2/img/hentai', function (error, response, body) {
                 try {
                     let arr = JSON.parse(body);
                     let embed = new Discord.RichEmbed()
-                        .setTitle(message.author.username + ' Главное не дрочи...')
                         .setImage(arr['url'])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;hentai | ${message.guild.name}`) 
                         .setTimestamp(); 
                     msg.edit({embed});
                 } catch (e) {
@@ -317,7 +257,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **злится**`)
                         .setImage((urls[Math.floor(Math.random() * urls.length)]))
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;angry @user | ${message.guild.name}`) 
                         .setTimestamp(); 
         if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                             message.react("😠")
@@ -326,7 +265,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **злится на** ${user1}`)
                         .setImage((urls[Math.floor(Math.random() * urls.length)]))
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;angry @user | ${message.guild.name}`)
                         .setTimestamp(); 
                         message.channel.send(embed
                         ).then(function(message) {
@@ -342,7 +280,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** себя`)
                         .setImage("https://78.media.tumblr.com/bbea36e4585df159eb4a339efc97313a/tumblr_ormo8ikFnO1wn2b96o1_500.gif")
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;bite @user | ${message.guild.name}`)
                         .setTimestamp(); 
         if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                             message.react("😱")
@@ -351,7 +288,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **укусил(а)** ${user1}`)
                         .setImage(t.url)
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;bite @user | ${message.guild.name}`)
                         .setTimestamp(); 
                         message.channel.send(embed
                         ).then(function(message) {
@@ -367,7 +303,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **выкурил(а) сигарету.**`)
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;smoke | ${message.guild.name}`)
                         .setTimestamp();
                     msg.edit({embed}).then(function(message) {
                             message.react("🚬")
@@ -379,10 +314,9 @@ let embed = new Discord.RichEmbed()
 				      message.channel.send('Загрузка...').then(msg => {
 					      const urls = ['https://media1.tenor.com/images/0d78943ec2d800847bfe98c0a5e03cd3/tenor.gif?itemid=11081269','https://thumbs.gfycat.com/DrearyDenseFlicker-size_restricted.gif','https://i.pinimg.com/originals/24/3e/2f/243e2f0cf4ad9ef9fb9def7594ec2c85.gif','https://thumbs.gfycat.com/SadWiltedHackee-small.gif','https://media.tenor.com/images/9bbd2789c5eaf20198205ca4976dda75/tenor.gif','https://data.whicdn.com/images/233322524/original.gif','https://gifer.com/i/8hQS.gif','http://gifimage.net/wp-content/uploads/2018/05/sleep-anime-gif-4.gif','https://media1.tenor.com/images/6f04cbe23fa862cd1e7da987c2b0308e/tenor.gif?itemid=9187874','https://i.pinimg.com/originals/92/8c/d7/928cd76c937e2f4c6d998651c2c88d58.gif','https://vignette.wikia.nocookie.net/kancolle/images/0/08/Umaru_sleeping.gif/revision/latest?cb=20161209020902','https://gifer.com/i/WDf.gif','https://i.imgur.com/Sb8Wls5.gif','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu7Otqu-VpJAr92BOMTtSJkJLxMWBD_l6Yd41tCkxKzDxUWOCB9g','https://i.kym-cdn.com/photos/images/original/001/115/759/095.gif'];//12321312312
 					      let embed = new Discord.RichEmbed()
-                        .setDescription(`${user} **пошел(шла) спать.**`)//мне за это вообще платили??\\
+                        .setDescription(`${user} **пошел(шла) спать.**`)//мне за это вообще платили??\\ //А? А? А?
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-			.setFooter(`Команда: ;sleep | ${message.guild.name}`)
 		     .setTimestamp();
                     msg.edit({embed}).then(function(message) {
                             message.react("💤")
@@ -397,7 +331,6 @@ let embed = new Discord.RichEmbed()
                         .setDescription(`${user} **совершил(а) суицид..**`)
                         .setImage(urls[Math.floor(Math.random() * urls.length)])
                         .setColor(message.member.highestRole.hexColor)
-                        .setFooter(`Команда: ;rip | ${message.guild.name}`) 
                         .setTimestamp();
                         msg.edit({embed}).then(function(message) {
                             message.react("☠")
@@ -430,7 +363,6 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Ушел(ла) в печаль**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;sad | ${message.guild.name}`) 
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("😢")
@@ -447,7 +379,6 @@ if (message.content.startsWith(p + `lick`)) {
 	.setDescription(`${user} **Лизнул(а)** ${user1}`)
 	.setImage(t.url)
 	.setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;lick @user | ${message.guild.name}`)  
 	.setTimestamp();
 	msg.edit({embed}).then(function(message) {
 	message.react("😛")
@@ -483,7 +414,6 @@ const urls = [
                     .setDescription(message.author+` **сказал(а) всем привет**`)
                     .setImage((urls[Math.floor(Math.random() * urls.length)]))
                     .setColor(message.member.highestRole.hexColor)
-                    .setFooter(`Команда: ;hi | ${message.guild.name}`) 
                     .setTimestamp(); 
     if (!user1 || user1.id === user.id) return message.channel.send(selfbite).then(function(message) {
                         message.react("👋")
@@ -492,7 +422,6 @@ const urls = [
                     .setDescription(message.author+` **сказал(а) привет** `+message.mentions.users.first())
                     .setImage((urls[Math.floor(Math.random() * urls.length)]))
                     .setColor(message.member.highestRole.hexColor)
-                    .setFooter(`Команда: ;hi @user | ${message.guild.name}`)
                     .setTimestamp(); 
                     message.channel.send(embed
                     ).then(function(message) {
@@ -525,7 +454,6 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Выпил(а) пивасика**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-.setFooter(`Команда: ;beer | ${message.guild.name}`)
 .setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("🍺")
@@ -533,7 +461,7 @@ let embed = new Discord.RichEmbed()
 });
 }
 if (message.content.startsWith(p + 'sex')) {
-    if (!message.channel.nsfw) return message.channel.send("**Иди в nsfw!**");
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
     let user = message.author;
     let user1 = message.mentions.users.first();
 	if(!user1) { user1=client.user }
@@ -586,7 +514,6 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **Выпил(а) кофе**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;coffee | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☕")
@@ -654,7 +581,6 @@ let embed = new Discord.RichEmbed()
       .setDescription(`${user} **выпил(а) чая**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor(message.member.highestRole.hexColor)
-	.setFooter(`Команда: ;tea @user | ${message.guild.name}`)
 	.setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☕")
@@ -670,7 +596,6 @@ if (message.content.startsWith(p + `neko`)) {
                     .setDescription(`NEKOSSS! :D`)
                     .setImage(arr['url'])
                     .setColor(message.member.highestRole.hexColor)
-		    .setFooter(`Команда: ;neko | ${message.guild.name}`)
 		    .setTimestamp();
                     msg.edit({embed
                     }).then(function(message) {
@@ -694,7 +619,6 @@ let embed = new Discord.RichEmbed()
       .setDescription(`**Тест бота**`)
       .setImage(urls[Math.floor(Math.random() * urls.length)])
       .setColor('RANDOM')
-      .setFooter(`Команда: ;||test | ${message.guild.name}`)
 		    .setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("☑")
@@ -720,7 +644,6 @@ let embed = new Discord.RichEmbed()
         const embed = new Discord.RichEmbed()
     .setColor(message.member.highestRole.hexColor)
     .setDescription('\n **Pong!** `' + `${Date.now() - message.createdTimestamp}` + ' ms` \n')
-    .setFooter(`Команда: ;ping | ${message.guild.name}`)
 		    .setTimestamp();  
     message.channel.send({embed});
     }
@@ -731,5 +654,7 @@ if(message.content.startsWith(p + `help`)) {
 }});
 //статус
     client.on('ready', () => {
-        client.user.setActivity("жаркие огни 🔥| ;help", {type: "STREAMING"});
+	    let status = [`Zoo 🐼[j!help]`, `Nature 🍃[j!help]`,`${client.guilds.size} servers 👀[j!help]`, `ball with XEVAL ⚾[j!help]`];
+	     let rstatus = Math.floor(Math.random() * status.length);
+        client.user.setActivity(status[rstatus], {type: "WATCHING"});
     });

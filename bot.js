@@ -36,7 +36,34 @@ console.log("ready")
 });
 
 
-
+client.on("guildCreate", guild => {
+  const logsServerJoin = client.channels.get('517746904382308352');
+  const embed = new Discord.RichEmbed()
+  .setTitle(guild.name)
+  .setDescription("Новый сервер.")
+  .setColor("00ff00")
+  .addField("Количество людей:", guild.memberCount)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("Owner", guild.owner.user.tag)
+  .addField("ID:", guild.id)
+   logsServerJoin.send(guild.id, embed);
+   logsServerJoin.send("``` ```");
+});    
+client.on("guildDelete", guild => {
+  const logsServerLeave = client.channels.get('517746904382308352');
+  const embed = new Discord.RichEmbed()
+  .setTitle(guild.name)
+  .setDescription("Ничто не вечно, я был удален с сервера")
+  .setColor("ff0000")
+  .addField("Количество людей:", guild.memberCount)
+  .addField("Количество ролей:", guild.roles.size)
+  .addField("Owner", guild.owner.user.tag)
+  .addField("ID:", guild.id)
+ 
+ 	
+  logsServerLeave.send(embed);
+  logsServerLeave.send("``` ```");
+});
 client.on('message', message => {
     const args = message.content.slice(p.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
@@ -652,11 +679,13 @@ if(message.content.startsWith(p + `help`)) {
     message.delete();
     message.channel.send(new Discord.RichEmbed()
 	    .setColor('BLURPLE')
-	    .setDescription("```j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bute [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\nj!help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          занятся половым актом с человеком ```"))
+	    .setDescription("```j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bite [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\nj!help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          занятся половым актом с человеком ```"))
 }});
 //статус
     client.on('ready', () => {
 	    let status = [`Zoo 🐼[j!help]`, `Nature 🍃[j!help]`,`${client.guilds.size} servers 👀[j!help]`, `ball with XEVAL ⚾[j!help]`];
 	     let rstatus = Math.floor(Math.random() * status.length);
-        client.user.setActivity(status[rstatus], {type: "WATCHING"});
+        setInterval( () =>{
+client.user.setActivity(status[rstatus], {type: "WATCHING"});
+	}, 5000)
     });

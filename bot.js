@@ -681,11 +681,15 @@ if(message.content.startsWith(p + `help`)) {
 	    .setColor('BLURPLE')
 	    .setDescription("```j!hug [user]          обнять человека \nj!pat [user]          погладить человека \nj!kiss [user]         поцеловать человека \nj!poke [user]         тыкнуть человека \nj!angry               начать злится \nj!sleep               пойти спать \nj!smoke               покурить сигаретку \nj!rip                 пойти и умереть \nj!hi                  поприветствовать всех \nj!sad                 уйти в печаль \nj!beer                начать бухать \nj!coffee              выпить чашку кофе \nj!bite [user]         укусить человека \nj!lick [user]         лизнуть человека \nj!slap [user]         ударить человека \n\nj!help                посмотреть команды \n\nj!hentai              посмотреть хентай \nj!sex [user]          занятся половым актом с человеком ```"))
 }});
+if(['invite'].icnludes(command)) {
+	message.channel.send("Invite me! \nhttps://discordapp.com/oauth2/authorize?client_id=476739055392915486&scope=bot&permissions=8")
+}
 //статус
     client.on('ready', () => {
+	      function randomStatus() {
 	    let status = [`Zoo 🐼[j!help]`, `Nature 🍃[j!help]`,`${client.guilds.size} servers 👀[j!help]`, `ball with XEVAL ⚾[j!help]`];
 	     let rstatus = Math.floor(Math.random() * status.length);
-        setInterval( () =>{
+	      }
 client.user.setActivity(status[rstatus], {type: "WATCHING"});
-	}, 5000)
+	    setInterval(randomStatus, 5000)
     });

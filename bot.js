@@ -693,5 +693,5 @@ if(message.content.startsWith(p + `help`)) {
         let rstatus = Math.floor(Math.random() * status.length);
         client.user.setActivity(status[rstatus]);
 
-    }; setInterval(randomStatus, 5000)
+    }; setInterval(randomStatus, 15000)
     });

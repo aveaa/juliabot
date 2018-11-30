@@ -685,7 +685,9 @@ let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im
 try {
 	message.author.send(embed)
 	message.channel.send("Проверьте личные сообщения!");
-} catch (err) return message.channel.send("Ваши личные сообщения заблокированы.")
+} catch (err) {
+	return message.channel.send("Ваши личные сообщения заблокированы.");
+}
 }
 });
 //статус

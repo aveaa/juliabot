@@ -682,7 +682,10 @@ let embed = new Discord.RichEmbed()
 	
 if(message.content.startsWith(p + `help`)) {
 let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im Julia the help in commands').addField('Reaction','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!coffee - Выпить чашку кофе').addField('18+','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай').addField('Other','j!help - Посмотреть команды\nj!invinte - Пригласить бота себе на сервер').addField('Server Link','** https://discord.gg/6ygBnMg **')
-message.author.send(embed)
+try {
+	message.author.send(embed)
+	message.channel.send("Проверьте личные сообщения!");
+} catch (err) return message.channel.send("Ваши личные сообщения заблокированы.")
 }
 });
 //статус

@@ -688,10 +688,10 @@ if(message.content.startsWith(p + `help`)) {
 }});
 //статус
     client.on('ready', () => {
-	      function randomStatus() {
-	    let status = [`Zoo 🐼[j!help]`, `Nature 🍃[j!help]`,`${client.guilds.size} servers 👀[j!help]`, `ball with XEVAL ⚾[j!help]`];
-	     let rstatus = Math.floor(Math.random() * status.length);
-	      }
-client.user.setActivity(status[rstatus], {type: "WATCHING"});
-	    setInterval(randomStatus, 5000)
+	     function randomStatus() {
+        let status = [`Zoo 🐼[j!help]`, `Nature 🍃[j!help]`,`${client.guilds.size} servers 👀[j!help]`, `ball with XEVAL ⚾[j!help]`];
+        let rstatus = Math.floor(Math.random() * status.length);
+        client.user.setActivity(status[rstatus]);
+
+    }; setInterval(randomStatus, 5000)
     });

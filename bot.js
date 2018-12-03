@@ -67,7 +67,7 @@ client.on("guildDelete", guild => {
 client.on('message', message => {
     const args = message.content.slice(p.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-	
+	if(message.author.bot) return;
 	
 if(message.content.startsWith(p + 'say')) {
     let say = message.content.slice((p + 'say').length);

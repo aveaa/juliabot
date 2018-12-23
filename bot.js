@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const request = require("request");
 const client = new Discord.Client();
+new Discord.Client({ disableEveryone: true });
 
 let id = '476978677872328705';
 let p = "j!"
@@ -630,6 +631,38 @@ let embed = new Discord.RichEmbed()
 .setTimestamp();
   msg.edit({embed}).then(function(message) {
           message.react("🗡")
+      }).catch(function() {});
+});
+}
+if (message.content.startsWith(p + `happy`)) {
+    let user = message.author;
+    message.channel.send('Загрузка...').then(msg => {
+        const urls = [
+"https://media.giphy.com/media/3Cm8cxtSHqu6Q/giphy.gif",
+"https://media1.tenor.com/images/0f9847a5f258da9a3bdccc3860f91eb5/tenor.gif?itemid=9188246",
+"https://media.giphy.com/media/IWM2uI93SaTde/giphy.gif",
+"https://i.gifer.com/3TMr.gif",
+"https://thumbs.gfycat.com/ScentedSecondaryDoe-size_restricted.gif",
+"https://data.whicdn.com/images/174338423/original.gif",
+"https://i.imgur.com/he3uUsy.gif",
+"https://thumbs.gfycat.com/BrilliantScaryAmethystsunbird-small.gif",
+"https://i.kym-cdn.com/photos/images/original/001/103/137/7d4.gif",
+"https://i.pinimg.com/originals/14/7b/ba/147bba012d5781ead622f9c2a4a02be2.gif",
+"https://thumbs.gfycat.com/FamiliarSourAddax-size_restricted.gif",
+"",
+"",
+"",
+"",
+"",
+""
+];
+let embed = new Discord.RichEmbed()
+      .setDescription(`${user} **Радуется**`)
+      .setImage(urls[Math.floor(Math.random() * urls.length)])
+      .setColor('RANDOM')
+.setTimestamp();
+  msg.edit({embed}).then(function(message) {
+          message.react("😀")
       }).catch(function() {});
 });
 }

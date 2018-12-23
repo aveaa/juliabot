@@ -675,7 +675,6 @@ if (message.content.startsWith(p + `neko`)) {
     });
 }
 if (message.content.startsWith(p + `waifu`)) {
-    message.delete();
     message.channel.send('Загрузка...').then(msg => {
 request('https://nekos.life/api/v2/img/waifu', function (error, response, body) {
             try {

@@ -69,7 +69,6 @@ if(message.content.startsWith(p + 'sayem')) {
     message.channel.send({embed});
 }
 if(message.content.startsWith(p + 'say')) {
-    let client = new Discord.Client({ disableEveryone: true });
     let say = message.content.slice((p + 'say').length);
     message.channel.send(say);
    }

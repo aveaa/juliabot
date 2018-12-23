@@ -133,12 +133,6 @@ if (['ship'].includes(command)) {
     .setTimestamp();
 message.channel.send({embed});
 }
-if (['8ball'].includes(command)) {
-    let numOfAnswer = randomInteger(1, 11);
-    if (!args[0]) {
-        message.reply('**Не указан аргумент**'); 
-        return;
-    }
     if (message.content.startsWith(p + `hug`)) {
         message.delete();
         let user = message.author;

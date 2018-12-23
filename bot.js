@@ -782,6 +782,40 @@ if (message.content.startsWith(p + `pussy`)) {
         });
     });
 }
+if (message.content.startsWith(p + `trap`)) {
+        if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+    message.channel.send('Загрузка...').then(msg => {
+        request('https://nekos.life/api/v2/img/trap', function (error, response, body) {
+            try {
+                let arr = JSON.parse(body);
+                let embed = new Discord.RichEmbed()
+                    .setImage(arr['url'])
+                    .setColor(message.member.highestRole.hexColor)
+		    .setTimestamp();
+                    msg.edit({embed});
+                    } catch (e) {
+                   console.log(e)
+             }
+        });
+    });
+}
+if (message.content.startsWith(p + `anal`)) {
+        if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+    message.channel.send('Загрузка...').then(msg => {
+        request('https://nekos.life/api/v2/img/anal', function (error, response, body) {
+            try {
+                let arr = JSON.parse(body);
+                let embed = new Discord.RichEmbed()
+                    .setImage(arr['url'])
+                    .setColor(message.member.highestRole.hexColor)
+		    .setTimestamp();
+                    msg.edit({embed});
+                    } catch (e) {
+                   console.log(e)
+             }
+        });
+    });
+}
     if(message.content.startsWith(p + 'poll')) {
 		message.delete().catch(O_o => {});
 		const say_poll_embed = args.join(" ");
@@ -810,7 +844,7 @@ if (message.content.startsWith(p + `pussy`)) {
 }
 	
 if(message.content.startsWith(p + `help`)) {
-let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im Julia the help in commands <a:Julia_1:526355662909734917>').addField('Reaction <a:julia_2:526359514895876154>','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!kill `[user]` - Убить коко-то\n j!smug `[user]` - Надсмеиваться над кем-то\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!coffee - Выпить чашку кофе').addField('18+ <a:julia_4:526361698496413716>','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай \n j!gasm - Отправить картинку оргазма\n j!ero - Картинка ero \n j!eron - Картинка eron\nj!tits - Картинка tits \n j!pussy - Картинка pussy').addField('Anime <a:julia_5:526362108976300062>','j!neko - Отправить картинку неко тян :3\n j!waifu - отправить картинку waifu').addField('Other <a:julia_7:526362654659575808>','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер\n j!sayem `[text]` - Сказать сообщение от именни бота [embed]\nj!say `[text]` - Написать сообщение от именни бота [No embed] \n j!ping - Проверить пинг бота').addField('Server Link <a:julia_6:526362654655381515>','** https://discord.gg/6ygBnMg **')
+let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im Julia the help in commands <a:Julia_1:526355662909734917>').addField('Reaction <a:julia_2:526359514895876154>','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!kill `[user]` - Убить коко-то\n j!smug `[user]` - Надсмеиваться над кем-то\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!coffee - Выпить чашку кофе').addField('18+ <a:julia_4:526361698496413716>','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай \n j!gasm - Отправить картинку оргазма\n j!ero - Картинка ero \n j!eron - Картинка eron\nj!tits - Картинка tits \n j!pussy - Картинка pussy\n j!trap - Отправить картинку trap').addField('Anime <a:julia_5:526362108976300062>','j!neko - Отправить картинку неко тян :3\n j!waifu - отправить картинку waifu').addField('Other <a:julia_7:526362654659575808>','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер\n j!sayem `[text]` - Сказать сообщение от именни бота [embed]\nj!say `[text]` - Написать сообщение от именни бота [No embed] \n j!ping - Проверить пинг бота').addField('Server Link <a:julia_6:526362654655381515>','** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{
 	message.channel.send("Проверьте личные сообщения!");	

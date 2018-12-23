@@ -76,7 +76,7 @@ if(message.content.startsWith(p + 'sayem')) {
 }
 if(message.content.startsWith(p + 'say')) {
     let say = message.content.slice((p + 'say').length);
-    message.channel.send(say);
+    message.channel.send(say).catch(err => { })
    }
 	if (message.content.startsWith(admp + `eval`) && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
 		const code = message.content.split(" ").slice(1).join(" ");

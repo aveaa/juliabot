@@ -106,6 +106,31 @@ if(message.content.startsWith(p + 'say')) {
          message.channel.send({embed});
        }
 	}
+if (['ship'].includes(command)) {
+    if (!args[0]) args[0] = message.guild.members.random();
+    if (!args[1]) args[1] = message.author
+    if (args[0].length > 30 || args[1].length > 30) return message.reply('**Аргумент не может быть длиннее 30 символов**');
+    let loveText
+    let shkala
+    let percents = randomInteger(0, 100)
+    if (percents <= 99) {loveText = `ОГО!`; shkala = '❤❤❤❤❤❤❤❤❤🖤'; }
+    if (percents <= 89) {loveText = `Супер!`; shkala = '❤❤❤❤❤❤❤❤🖤🖤';}
+    if (percents <= 79) {loveText = `Wow!`; shkala = '❤❤❤❤❤❤❤🖤🖤🖤';}
+    if (percents <= 69) {loveText = `Очень хорошо!`; shkala = '❤❤❤❤❤❤🖤🖤🖤🖤';}
+    if (percents <= 59) {loveText = `Неплохо`; shkala = '❤❤❤❤❤🖤🖤🖤🖤🖤';}
+    if (percents <= 49) {loveText = `Нормально`; shkala = '❤❤❤❤🖤🖤🖤🖤🖤🖤';}
+    if (percents <= 49) {loveText = `Сойдет`; shkala = '❤❤❤🖤🖤🖤🖤🖤🖤🖤';}
+    if (percents <= 29) {loveText = `Тоже очень плохо!`; shkala = '❤❤🖤🖤🖤🖤🖤🖤🖤🖤';}
+    if (percents <= 19) {loveText = `Тоже плохо!`; shkala = '❤🖤🖤🖤🖤🖤🖤🖤🖤🖤';}
+    if (percents <= 9) {loveText = `Очень плохо!`; shkala = '🖤🖤🖤🖤🖤🖤🖤🖤🖤🖤';}
+    if (percents >= 100) {loveText = `Любит только тебя!`; shkala = '❤❤❤❤❤❤❤❤❤❤'; percents = 100;}
+    const embed = new Discord.RichEmbed()
+    .setTitle("Проверить любовь")
+    .setColor('RANDOM')
+    .setDescription(args[0] + '❤' + args[1] + '**\n\n:revolving_hearts:Любовь в проценатах: **' + percents +'%'+'\n\n**По шкале**\n\n'+shkala+'\n\n**Ответ: **' + loveText)
+    .setTimestamp();
+message.channel.send({embed});
+}
     if (message.content.startsWith(p + `hug`)) {
         message.delete();
         let user = message.author;

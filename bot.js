@@ -1,6 +1,7 @@
 const Discord = require(`discord.js`);
 const request = require("request");
-const client = new Discord.Client();
+const client = new Discord.Client({disableEveryone : true});
+
 
 let id = '476978677872328705';
 let p = "j!"

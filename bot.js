@@ -883,12 +883,12 @@ if (message.content.startsWith(p + `anal`)) {
 		const say_poll_embed = args.join(" ");
 		const embed = new Discord.RichEmbed()
 			.setColor('RANDOM')
-			.setDescription(say_poll_embed+'\n\n**Голосование создал**'+message.author)
+			.setDescription(say_poll_embed+'\n\n**Голосование создал **'+message.author)
             message.channel.send({
                 embed
             }).then(function(message) {
-                message.react("<:julia_9:526438278573064192>")
-                message.react("<:julia_8:526438278036062218>")
+                message.react('<:julia_9:526438278573064192>')
+                message.react('<:julia_8:526438278036062218>')
             }).catch(function() {});
         }
         if (message.author.bot) return;

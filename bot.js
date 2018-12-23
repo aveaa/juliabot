@@ -682,8 +682,7 @@ request('https://nekos.life/api/v2/img/waifu', function (error, response, body) 
                 let arr = JSON.parse(body);
                 let embed = new Discord.RichEmbed()
                     .setImage(arr['url'])
-                    .setColor('RANDOM')
-                    .setFooter(bot) 
+                    .setColor('RANDOM') 
                     .setTimestamp();
                 msg.edit({embed});
             } catch (e) {

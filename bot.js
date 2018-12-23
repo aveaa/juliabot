@@ -892,7 +892,8 @@ if (message.content.startsWith(p + `anal`)) {
             message.channel.send({
                 embed
             }).then(function(message) {
-                return multipleReact(message, ['<:julia_9:526438278573064192>','<:julia_8:526438278036062218>'])
+                message.react('✅');
+                message.react('❎');
             }).catch(function() {});
         }
         if (message.author.bot) return;

@@ -61,7 +61,7 @@ client.on('message', message => {
 	if(message.author.bot) return;
 	
 if(message.content.startsWith(p + 'sayem')) {
-    let say = message.content.slice((p + 'say').length);
+    let say = message.content.slice((p + 'sayem').length);
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(say)
@@ -69,6 +69,7 @@ if(message.content.startsWith(p + 'sayem')) {
     message.channel.send({embed});
 }
 if(message.content.startsWith(p + 'say')) {
+    new Discord.Client({ disableEveryone: true });
     let say = message.content.slice((p + 'say').length);
     message.channel.send(say);
    }

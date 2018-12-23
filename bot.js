@@ -411,7 +411,7 @@ if (message.content.startsWith(p + `lick`)) {
 if (message.content.startsWith(p + `hi`)) {
     message.delete();
 const urls = [
-    "https://orig00.deviantart.net/8d1d/f/2010/319/4/b/hi_____animated_by_0febris0-d2wu3lv.gif",//1
+    "https://media.tenor.com/images/824a5c6fb0eff4de202d0cd4da1e6692/tenor.gif",//1
 "https://steamusercontent-a.akamaihd.net/ugc/1617175662597177927/732757601CDBF2E52C41EF3349035A337BB119D7/",//2
 "https://image.noelshack.com/fichiers/2018/17/3/1524685070-df0a9rx.gif",//3
 "https://thumbs.gfycat.com/HatefulBlindFunnelweaverspider-size_restricted.gif",//4
@@ -428,6 +428,17 @@ const urls = [
 "https://cdn105.picsart.com/203730462001202.gif?r1024x1024",//15
 "https://thumbs.gfycat.com/HauntingNeighboringBarracuda-max-1mb.gif",//16
 "http://pa1.narvii.com/5935/a557baffc06658c5b3c2932eb0bc496cb112d04c_00.gif"//17
+"https://thumbs.gfycat.com/ArtisticVelvetyBarebirdbat-max-1mb.gif",
+"https://media1.tenor.com/images/ae40603eddb6e4bb1ea56cc6de7d0f6e/tenor.gif?itemid=5142315",
+"https://media.tenor.com/images/21f53e7521c2262f778cb71bd671522b/tenor.gif",
+"https://media.tenor.com/images/73ce6a152fdf3fa2645f6153c646c9b7/tenor.gif",
+"https://image.myanimelist.net/ui/z9mCAeIYypLkQQhpPKgdnaknwcoChRZHEz5uuGvWqjGX9hQXPKVaIgGJhk17VmmwNuay0ifX7duQKIoAzhryEWr3Rof3GZ_OaH5gLoVMkOU",
+"https://pa1.narvii.com/6749/99edaa75487131db6d433c0c9442051f6314452c_hq.gif",
+"http://gifimage.net/wp-content/uploads/2017/10/hello-anime-gif-7.gif",
+"https://i.kym-cdn.com/photos/images/newsfeed/001/402/477/2ec.gif",
+"https://media1.tenor.com/images/943a3f95936d66dc0c78fd445893431e/tenor.gif?itemid=9060940",
+"https://image.myanimelist.net/ui/_D9BvY42y5B3XjqszccZEcQ2SNP8h5106Ssqd0yjIoOLHYVPNM4QRf3QlKgAuc3crFW1imwGXqnkBUWKef6Xz6ux7UeaqIiqrDQNmkpinsaSrt7QBBqeEk5M-IkPP4mA",
+"https://pa1.narvii.com/6482/b4862bba0a3633b3bb3e6f4b6a72b8047f932c4a_hq.gif"
 ];
     let user = message.author;
     let user1 = message.mentions.users.first();

@@ -133,6 +133,24 @@ if (['ship'].includes(command)) {
     .setTimestamp();
 message.channel.send({embed});
 }
+if (['8ball'].includes(command)) {
+    let numOfAnswer = randomInteger(1, 11);
+    if (!args[0]) {
+        message.reply('**Не указан аргумент**'); 
+        return;
+    }
+    if (numOfAnswer === 1) message.reply('Без сомнения да!');
+    else if (numOfAnswer === 2) message.reply('Да, конечно');
+    else if (numOfAnswer === 3) message.reply('Да');
+    else if (numOfAnswer === 4) message.reply('Ну да');
+    else if (numOfAnswer === 5) message.reply('Может быть');
+    else if (numOfAnswer === 6) message.reply('Абсолютно нет!');
+    else if (numOfAnswer === 7) message.reply('Никак нет');
+    else if (numOfAnswer === 8) message.reply('Нет');
+    else if (numOfAnswer === 9) message.reply('Не знаю');
+    else if (numOfAnswer === 10) message.reply('Cомневаюсь');
+    else message.reply('Я не знаю,спроси потом');
+}
     if (message.content.startsWith(p + `hug`)) {
         message.delete();
         let user = message.author;

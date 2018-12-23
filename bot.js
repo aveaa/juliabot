@@ -1,19 +1,10 @@
 const Discord = require(`discord.js`);
 const request = require("request");
 const client = new Discord.Client();
+
 let id = '476978677872328705';
-/*client.on('voiceStateUpdate', (old_, new_) => {
-if (old_.voiceChannelID) new_.removeRole(id).catch()
-if (new_.voiceChannelID) new_.addRole(id).catch()
-});*/
 let p = "j!"
 let admp = "j@"
-//ID ролей
-let Oxpana = '477045054045814793';
-let Kosmo = '477045398263955456';
-let Smotri = '477045398263955456';
-let Chmute = '477065648544153600';
-let VoiceMute = '477065632546816000';
 
 //Функции
 function randomInteger(min, max) {
@@ -69,10 +60,10 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 	if(message.author.bot) return;
 	
-if(message.content.startsWith(p + 'say')) {
+if(message.content.startsWith(p + 'sayem')) {
     let say = message.content.slice((p + 'say').length);
     const embed = new Discord.RichEmbed()
-    .setColor(message.member.highestRole.hexColor)
+    .setColor("RANDOM")
     .setDescription(say)
     .setTimestamp();
     message.channel.send({embed});
@@ -582,6 +573,52 @@ let embed = new Discord.RichEmbed()
 });
 }
 */
+if (message.content.startsWith(p + `kill`)) {
+    let user = message.author;
+    let user1 = message.mentions.users.first();
+      if(!user1) { user1=client.user }
+    message.channel.send('Загрузка...').then(msg => {
+        const urls = [
+"https://i.gifer.com/9KyA.gif",
+"https://i.gifer.com/5hQ1.gif",
+"https://i.gifer.com/777c.gif",
+"https://i.gifer.com/C3SI.gif",
+"https://media.giphy.com/media/iUgoB9zOO0QkU/giphy.gif",
+"http://animechan.ru/uploads/posts/2011-09/1315813239_tumblr_lq6ytuegoe1qzea6yo1_500.gif",
+"http://gifimage.net/wp-content/uploads/2017/09/akame-ga-kill-leone-gif-5.gif",
+"http://static4.wikia.nocookie.net/__cb20131228141116/anime-characters-fight/ru/images/0/0b/Tumblr_my2qhyoRZ81r3rdh2o1_400.gif",
+"https://media1.tenor.com/images/5ab22ca640af20cd3b479694bde9e25c/tenor.gif?itemid=4961067",
+"https://vignette.wikia.nocookie.net/berserk/images/f/f8/%D0%A3%D0%B4%D0%B0%D1%80_%D0%BC%D0%B5%D1%87%D0%BE%D0%BC_%281997%29.gif/revision/latest?cb=20170728042606&path-prefix=ru",
+"https://i.pinimg.com/originals/03/25/4b/03254b3e75161c5c8bbf7364f2d41d9d.gif",
+"https://uploads.disquscdn.com/images/4fbdf1f8b0dc6bd114eb5270de642da061a00d35c7efb07d40121bb8d2b572dc.gif",
+"https://38.media.tumblr.com/fe1fd006f18108c329c8a6360db6ea31/tumblr_mly4q7Ftq61s5h198o1_r1_400.gif",
+"https://img-fotki.yandex.ru/get/6436/137106206.2ce/0_b7d4d_d014e887_orig.jpg",
+"https://cs4.pikabu.ru/post_img/2014/08/06/5/1407301513_322675141.gif",
+"https://i.gifer.com/7ODW.gif",
+"https://media1.tenor.com/images/46051e203deaefc5642916c1eafa54a7/tenor.gif?itemid=3660367",
+"https://i.imgur.com/Bti43x8.gif",
+"https://i.gifer.com/2ctw.gif",
+"https://gifimage.net/wp-content/uploads/2017/09/anime-kill-gif-5.gif",
+"https://pa1.narvii.com/6839/bddc4a19c9e3cb7e5e6bf83afb23407ebe31a11a_hq.gif",
+"https://i.gifer.com/2hBx.gif",
+"https://pa1.narvii.com/6467/4a054ee5fa7222473ff2c2dd7974e4c8c0c6ff00_hq.gif",
+"https://media1.tenor.com/images/aa5a82dcaff6309dfd5ee5cfeaad4bed/tenor.gif?itemid=10616092",
+"https://steamusercontent-a.akamaihd.net/ugc/870746400639910679/2AB3A3A3B3740019D0DFCF73DAFA6E3BCA32C6B9/",
+"https://media1.tenor.com/images/c1b725e33769b0e3c0d549593587cd5f/tenor.gif?itemid=8430439",
+"https://i.pinimg.com/originals/19/88/c8/1988c8d65590df4df62894495e44343c.gif",
+"https://vignette.wikia.nocookie.net/absolute/images/8/8d/Suzuka-gif1.gif/revision/latest?cb=20141116085550&path-prefix=ru",
+"https://i.gifer.com/FCJA.gif"
+];
+let embed = new Discord.RichEmbed()
+      .setDescription(`${user} **Убил** ${user1}`)
+      .setImage(urls[Math.floor(Math.random() * urls.length)])
+      .setColor('RANDOM')
+.setTimestamp();
+  msg.edit({embed}).then(function(message) {
+          message.react("🗡")
+      }).catch(function() {});
+});
+}
 if (message.content.startsWith(p + `tea`)) {
     let user = message.author;
     message.channel.send('Загрузка...').then(msg => {
@@ -663,7 +700,6 @@ let embed = new Discord.RichEmbed()
             }).then(function(message) {
                 message.react("✅")
                 message.react("❎")
-                message.react("🔘")
             }).catch(function() {});
         }
         if (message.author.bot) return;
@@ -681,7 +717,7 @@ let embed = new Discord.RichEmbed()
 }
 	
 if(message.content.startsWith(p + `help`)) {
-let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im Julia the help in commands').addField('Reaction','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!coffee - Выпить чашку кофе').addField('18+','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай').addField('Other','j!help - Посмотреть команды\nj!invinte - Пригласить бота себе на сервер').addField('Server Link','** https://discord.gg/6ygBnMg **')
+let embed = new Discord.RichEmbed().setColor('RANDOM').addField("HELP",'hello im Julia the help in commands').addField('Reaction','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!kill [@user] - Убить коко-то\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!coffee - Выпить чашку кофе').addField('18+','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай \n j!gasm - Отправить картинку оргазма').addField('Anime','j!neko - Отправить картинку неко тян :3').addField('Other','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер \n j!poll `[text]` - Создать голосование \n j!sayem `[text]` - Сказать сообщение от именни бота [embed] \n j!ping - Проверить пинг бота ').addField('Server Link','** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{
 	message.channel.send("Проверьте личные сообщения!");	

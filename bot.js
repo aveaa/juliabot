@@ -18,6 +18,11 @@ function setBigTimeout(func, timeout) {
     else
         setTimeout(func, timeout);
 }
+async function multipleReact(message, arr) {
+    if (arr !== []) {
+        await message.react(arr.shift()).catch(console.error).then(function () {multipleReact(message,arr).catch();});
+    }
+} //GameSpace
 //тут токен(секретный,Тссссссс.....)
 client.login(process.env.BOT_TOKEN);
 //команды
@@ -887,8 +892,7 @@ if (message.content.startsWith(p + `anal`)) {
             message.channel.send({
                 embed
             }).then(function(message) {
-                message.react('<:julia_9:526438278573064192>')
-                message.react('<:julia_8:526438278036062218>')
+                return multipleReact(message, [<:julia_9:526438278573064192>,<:julia_8:526438278036062218>]
             }).catch(function() {});
         }
         if (message.author.bot) return;

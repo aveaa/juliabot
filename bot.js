@@ -883,7 +883,7 @@ if (message.content.startsWith(p + `anal`)) {
 		const say_poll_embed = args.join(" ");
 		const embed = new Discord.RichEmbed()
 			.setColor('RANDOM')
-			.setDescription(say_poll_embed+'\n\nГолосование создал ${user}')
+			.setDescription(say_poll_embed+'\n\n**Голосование создал**'+message.author)
             message.channel.send({
                 embed
             }).then(function(message) {

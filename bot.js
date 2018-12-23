@@ -878,16 +878,17 @@ if (message.content.startsWith(p + `anal`)) {
     });
 }
     if(message.content.startsWith(p + 'poll')) {
+                let user = message.author;
 		message.delete().catch(O_o => {});
 		const say_poll_embed = args.join(" ");
 		const embed = new Discord.RichEmbed()
-			.setColor(message.member.highestRole.hexColor)
-			.setDescription(say_poll_embed)
+			.setColor('RANDOM')
+			.setDescription(say_poll_embed+'\n\nГолосование создал ${user}')
             message.channel.send({
                 embed
             }).then(function(message) {
-                message.react("✅")
-                message.react("❎")
+                message.react("<:julia_9:526438278573064192>")
+                message.react("<:julia_8:526438278036062218>")
             }).catch(function() {});
         }
         if (message.author.bot) return;

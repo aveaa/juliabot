@@ -66,8 +66,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 	if(message.author.bot) return;
 	
-if(message.content.startsWith(p + 'say-em')) {
-    let say = message.content.slice((p + 'say-em').length);
+if(message.content.startsWith(p + 'embed')) {
+    let say = message.content.slice((p + 'embed').length);
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(say)
@@ -944,7 +944,7 @@ let embed = new Discord.RichEmbed().setColor('RANDOM')
 .addField('18+ <a:julia_4:526361698496413716>','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай \n j!gasm - Отправить картинку оргазма\n j!ero - Картинка ero \n j!eron - Картинка eron\nj!tits - Картинка tits \n j!pussy - Картинка pussy\n j!trap - Отправить картинку trap\n j!anal - Отправить картинку anal')
 .addField('Anime <a:julia_5:526362108976300062>','j!neko - Отправить картинку неко тян :3\n j!waifu - отправить картинку waifu')
 .addField('Fun <a:julia_10:526469493199863808>','j!ship `[user]` - Проверить любовь')
-.addField('Other <a:julia_7:526362654659575808>','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер\n j!sayem `[text]` - Сказать сообщение от именни бота [embed]\nj!say `[text]` - Написать сообщение от именни бота [No embed] \n j!ping - Проверить пинг бота')
+.addField('Other <a:julia_7:526362654659575808>','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер\n j!embed `[text]` - Сказать сообщение от именни бота [embed]\nj!say `[text]` - Написать сообщение от именни бота [No embed] \n j!ping - Проверить пинг бота')
 .addField('Server Link <a:julia_6:526362654655381515>','** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{

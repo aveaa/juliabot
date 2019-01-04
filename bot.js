@@ -67,7 +67,7 @@ client.on('message', message => {
 	if(message.author.bot) return;
 	
 if(message.content.startsWith(p + 'sayem')) {
-    let say = message.content.slice((p + 'sayem').length);
+    let say = message.content.slice((p + 'say').length);
     const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setDescription(say)

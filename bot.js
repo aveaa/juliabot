@@ -39,7 +39,7 @@ client.on("guildCreate", guild => {
   .setTitle(guild.name)
   .setDescription("Новый сервер.")
   .setColor("00ff00")
-  .setThumbnail(message.guild.iconUrl)
+  .setThumbnail(guild.iconUrl)
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
   .addField("Owner", guild.owner.user.tag)
@@ -53,7 +53,7 @@ client.on("guildDelete", guild => {
   .setTitle(guild.name)
   .setDescription("Я был удалён с сервера")
   .setColor("ff0000")
-  .setThumbnail(message.guild.iconUrl)
+  .setThumbnail(guild.iconUrl)
   .addField("Количество людей:", guild.memberCount)
   .addField("Количество ролей:", guild.roles.size)
   .addField("Owner", guild.owner.user.tag)
@@ -539,6 +539,7 @@ let embed = new Discord.RichEmbed()
 });
 }
 if (message.content.startsWith(p + `happy`)) {
+    message.delete();
     let user = message.author;
     message.channel.send('Загрузка...').then(msg => {
         const urls = [
@@ -735,23 +736,53 @@ if (message.content.startsWith(p + `anal`)) {
 }
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
-        const embed = new Discord.RichEmbed()
-    .setColor(c)
-    .setDescription('Ping:' + `${Date.now() - message.createdTimestamp}` + ' ms` \n')
-    message.channel.send({embed});
+    message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');
     }
 	
-	if(message.content.startsWith(p + `invite`)) {
-	message.channel.send("Invite me! \nhttps://discordapp.com/oauth2/authorize?client_id=476739055392915486&scope=bot&permissions=8")
+if(message.content.startsWith(p + `invite`)) {
+message.channel.send("Invite me! \nhttps://discordapp.com/oauth2/authorize?client_id=476739055392915486&scope=bot&permissions=8")
 }	
 if(message.content.startsWith(p + `help`)) {
-let embed = new Discord.RichEmbed().setColor('RANDOM')
-.addField("HELP",'hello im Julia the help in commands <a:Julia_1:526355662909734917>')
-.addField('Reaction <a:julia_2:526359514895876154>','j!hug `[user]` - Обнять человека\n j!pat `[user]` - Погладить человека\n j!kiss `[user]` - Поцеловать человека\n j!bite `[user]` - Укусить человека \nj!lick `[user]` - лизнуть человека\nj!slap `[user]` - Ударить человека\nj!kill `[user]` - Убить коко-то\n j!smug `[user]` - Надсмеиваться над кем-то\nj!angry - Начать злится\nj!sleep - Пойти спать\nj!smoke - Покурить сигаретку\nj!rip - Пойти и умереть\nj!hi - Поприветствовать всех\nj!sad - Уйти в печаль\nj!beer - Начать пить пиво\nj!happy - Радоватся')
-.addField('18+ <a:julia_4:526361698496413716>','j!sex `[user]` - Занятся половым актом с человеком\nj!hentai - Посмотреть хентай \n j!gasm - Отправить картинку оргазма\n j!ero - Картинка ero \n j!eron - Картинка eron\nj!tits - Картинка tits \n j!pussy - Картинка pussy\n j!trap - Отправить картинку trap\n j!anal - Отправить картинку anal')
-.addField('Anime <a:julia_5:526362108976300062>','j!neko - Отправить картинку неко тян :3\n j!waifu - отправить картинку waifu')
-.addField('Other <a:julia_7:526362654659575808>','j!help - Посмотреть команды\nj!invite - Пригласить бота себе на сервер\n j!ping - Проверить пинг бота')
-.addField('Server Link <a:julia_6:526362654655381515>','** https://discord.gg/6ygBnMg **')
+let embed = new Discord.RichEmbed()
+.setColor(c)
+.addField("HELP",`hello im Julia the help in commands <a:Julia_1:526355662909734917>`)
+.addField('Reaction <a:julia_2:526359514895876154>',
+`j!hug \`[user]\` - Обнять человека\n 
+j!pat \`[user]\` - Погладить человека\n 
+j!kiss \`[user]\` - Поцеловать человека\n 
+j!bite \`[user]\` - Укусить человека \n
+j!lick \`[user]\` - лизнуть человека\n
+j!slap \`[user]\` - Ударить человека\n
+j!kill \`[user]\` - Убить коко-то\n 
+j!smug \`[user]\` - Надсмеиваться над кем-то\n
+j!angry - Начать злится\n
+j!sleep - Пойти спать\n
+j!smoke - Покурить сигаретку\n
+j!rip - Пойти и умереть\n
+j!hi - Поприветствовать всех\n
+j!sad - Уйти в печаль\n
+j!beer - Начать пить пиво\n
+j!happy - Радоватся
+`)
+.addField('18+ <a:julia_4:526361698496413716>',
+`j!sex \`[user]\` - Занятся половым актом с человеком\n
+j!hentai - Посмотреть хентай\n
+j!gasm - Отправить картинку оргазма\n
+j!ero - Картинка ero \n
+j!eron - Картинка eron\n
+j!tits - Картинка tits \n
+j!pussy - Картинка pussy\n
+j!trap - Отправить картинку trap\n
+j!anal - Отправить картинку anal`)
+.addField('Anime <a:julia_5:526362108976300062>',
+`j!neko - Отправить картинку неко тян\n
+j!waifu - отправить картинку waifu`)
+.addField('Other <a:julia_7:526362654659575808>',
+`j!help - Посмотреть команды\n
+j!invite - Пригласить бота себе на сервер\n
+j!ping - Проверить пинг бота`)
+.addField('Server Link <a:julia_6:526362654655381515>',
+'** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{
 	message.channel.send("Check your DM`S!");	

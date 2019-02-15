@@ -827,44 +827,44 @@ let embed = new Discord.RichEmbed()
 .setColor(c)
 .addField("HELP",`hello im Julia the help in commands <a:Julia_1:526355662909734917>`)
 .addField('Reaction <a:julia_2:526359514895876154>',
-`j!hug \`[user]\` - Обнять человека\n 
-j!pat \`[user]\` - Погладить человека\n 
-j!kiss \`[user]\` - Поцеловать человека\n 
-j!bite \`[user]\` - Укусить человека \n
-j!lick \`[user]\` - лизнуть человека\n
-j!slap \`[user]\` - Ударить человека\n
-j!kill \`[user]\` - Убить коко-то\n 
-j!smug \`[user]\` - Надсмеиваться над кем-то\n
-j!angry - Начать злится\n
-j!sleep - Пойти спать\n
-j!smoke - Покурить сигаретку\n
-j!rip - Пойти и умереть\n
-j!hi - Поприветствовать всех\n
-j!sad - Уйти в печаль\n
-j!beer - Начать пить пиво\n
+`j!hug \`[user]\` - Обнять человека
+j!pat \`[user]\` - Погладить человека
+j!kiss \`[user]\` - Поцеловать человека
+j!bite \`[user]\` - Укусить человека
+j!lick \`[user]\` - лизнуть человека
+j!slap \`[user]\` - Ударить человека
+j!kill \`[user]\` - Убить коко-то
+j!smug \`[user]\` - Надсмеиваться над кем-то
+j!angry - Начать злится
+j!sleep - Пойти спать
+j!smoke - Покурить сигаретку
+j!rip - Пойти и умереть
+j!hi - Поприветствовать всех
+j!sad - Уйти в печаль
+j!beer - Начать пить пиво
 j!happy - Радоватся
 `)
 .addField('NSFW <a:julia_4:526361698496413716>',
-`j!sex \`[user]\` - Занятся половым актом с человеком\n
-j!hentai - Посмотреть хентай\n
-j!gasm - Отправить картинку оргазма\n
-j!ero - Картинка ero \n
-j!eron - Картинка eron\n
-j!tits - Картинка tits \n
-j!pussy - Картинка pussy\n
-j!trap - Отправить картинку trap\n
-j!anal - Отправить картинку anal\n
-j!yuri - Отправить картинку yuri\n
-j!kuni - Отправить гифку kuni\n
-j!solo - Отправить картинку solo\n
-j!futanari - Отправить картинку futanari\n
+`j!sex \`[user]\` - Занятся половым актом с человеком
+j!hentai - Посмотреть хентай
+j!gasm - Отправить картинку оргазма
+j!ero - Картинка ero
+j!eron - Картинка eron
+j!tits - Картинка tits
+j!pussy - Картинка pussy
+j!trap - Отправить картинку trap
+j!anal - Отправить картинку anal
+j!yuri - Отправить картинку yuri
+j!kuni - Отправить гифку kuni
+j!solo - Отправить картинку solo
+j!futanari - Отправить картинку futanari
 j!femdom - Отправить картинку femdom`)
 .addField('Anime <a:julia_5:526362108976300062>',
-`j!neko - Отправить картинку неко тян\n
+`j!neko - Отправить картинку неко тян
 j!waifu - отправить картинку waifu`)
 .addField('Other <a:julia_7:526362654659575808>',
-`j!help - Посмотреть команды\n
-j!invite - Пригласить бота себе на сервер\n
+`j!help - Посмотреть команды
+j!invite - Пригласить бота себе на сервер
 j!ping - Проверить пинг бота`)
 .addField('Server Link <a:julia_6:526362654655381515>',
 '** https://discord.gg/6ygBnMg **')

@@ -107,19 +107,24 @@ client.on('message', message => {
         let user = message.author;
         let user1 = message.mentions.users.first();
         if (!user1 || user1.id === user.id) {
-            user  =  client.user;
+            user = client.user;
             user1 = message.author;
-        }
+            }
         message.channel.send('Загрузка...').then(msg => {
-		weeb.random('hug', { hidden: false, nsfw: false, filetype: 'gif'}).then(t => {
-    let embed = new Discord.RichEmbed()
-          .setDescription(`${user} **обнял(а)** ${user1}`)
-          .setImage(t.url)
-          .setColor(c)
-      msg.edit(embed)
-        })
-	});
-    }
+             request('https://nekos.life/api/v2/img/hug', function (error, response, body) {
+                 try {
+                    let arr = JSON.parse(body);
+                    let embed = new Discord.RichEmbed()
+                        .setDescription(`${user} **обнял(а)** ${user1}`)
+                        .setImage(arr['url'])
+                        .setColor(c)
+                         msg.edit(embed)
+                         } catch (e) {
+                        console.log(e)
+                     }
+                });
+            });
+        }
     if (message.content.startsWith(p + `pat`)) {
         message.delete();
         let user = message.author;

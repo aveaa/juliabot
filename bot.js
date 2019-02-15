@@ -734,6 +734,86 @@ if (message.content.startsWith(p + `anal`)) {
         });
     });
 }
+if (message.content.startsWith(p + `yuri`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/yuri', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `kuni`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/kuni', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `solo`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/solo', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `futanari`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/futanari', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `femdom`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/femdom', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');
@@ -764,7 +844,7 @@ j!sad - Уйти в печаль\n
 j!beer - Начать пить пиво\n
 j!happy - Радоватся
 `)
-.addField('18+ <a:julia_4:526361698496413716>',
+.addField('NSFW <a:julia_4:526361698496413716>',
 `j!sex \`[user]\` - Занятся половым актом с человеком\n
 j!hentai - Посмотреть хентай\n
 j!gasm - Отправить картинку оргазма\n
@@ -773,7 +853,12 @@ j!eron - Картинка eron\n
 j!tits - Картинка tits \n
 j!pussy - Картинка pussy\n
 j!trap - Отправить картинку trap\n
-j!anal - Отправить картинку anal`)
+j!anal - Отправить картинку anal\n
+j!yuri - Отправить картинку yuri\n
+j!kuni - Отправить гифку kuni\n
+j!solo - Отправить картинку solo\n
+j!futanari - Отправить картинку futanari\n
+j!femdom - Отправить картинку femdom`)
 .addField('Anime <a:julia_5:526362108976300062>',
 `j!neko - Отправить картинку неко тян\n
 j!waifu - отправить картинку waifu`)

@@ -814,11 +814,138 @@ message.channel.send('Загрузка...').then(msg => {
     });
 });
 }
+if(message.content.startsWith(p + `eroyuri`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/eroyuri', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `cum`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/cum', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `les`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/les', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `lewdkemo`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/lewdkemo', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `blowjob`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/blowjob', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `kemonomimi`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/kemonomimi', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `boobs`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/boobs', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `smallboobs`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/smallboobs', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');
     }
-	
 if(message.content.startsWith(p + `invite`)) {
 message.channel.send("Invite me! \nhttps://discordapp.com/oauth2/authorize?client_id=476739055392915486&scope=bot&permissions=8")
 }	
@@ -858,7 +985,15 @@ j!yuri - Отправить картинку yuri
 j!kuni - Отправить гифку kuni
 j!solo - Отправить картинку solo
 j!futanari - Отправить картинку futanari
-j!femdom - Отправить картинку femdom`)
+j!femdom - Отправить картинку femdom
+j!eroyuri - Отправить картинку eroyuri
+j!cum - Отправить гифку cum
+j!les - Отправить гифку les
+j!blowjob - Отправить картинку blowjob
+j!lewdkemo - Отправить картинку lewdkemo
+j!kemonomimi - Отправить картинку kemonomimi
+j!boobs - Отправить картинку boobs
+j!smallboobs - Отправить картинку smallboobs`)
 .addField('Anime <a:julia_5:526362108976300062>',
 `j!neko - Отправить картинку неко тян
 j!waifu - отправить картинку waifu`)

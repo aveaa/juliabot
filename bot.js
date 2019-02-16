@@ -1020,22 +1020,6 @@ message.channel.send('Загрузка...').then(msg => {
     });
 });
 }
-if(message.content.startsWith(p + `feet`)) {
-    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
-message.channel.send('Загрузка...').then(msg => {
-    request('https://nekos.life/api/v2/img/feet', function (error, response, body) {
-        try {
-            let arr = JSON.parse(body);
-            let embed = new Discord.RichEmbed()
-                .setImage(arr['url'])
-                .setColor(c)
-                msg.edit({embed});
-                } catch (e) {
-               console.log(e)
-         }
-    });
-});
-}
 if(message.content.startsWith(p + `erofeet`)) {
     if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
 message.channel.send('Загрузка...').then(msg => {

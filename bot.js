@@ -1146,6 +1146,7 @@ if(message.content.startsWith(p + 'mute')) {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.channel.send("**Этот пользователь не найден.**");
     if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => tomute.hasPermission(r))) return message.channel.send("**У тебя нету прав для мута этого пользователя.**");
+    if(!args[1]) return message.channel.send("**Я не могу замутить на 0 или меньше.**")
     let mReason = args.join("     ").slice(29);
     if(tomute.hasPermission("KICK_MEMBERS")) return message.channel.send("**У вас нету прав.**");    
     let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    
@@ -1189,8 +1190,7 @@ if(message.content.startsWith(p + 'mute')) {
     }, ms(mutetime));
   }
 if(message.content.startsWith(p+'clear')){
-    //if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("**У тебя нету прав!**");
-    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS","MANAGE_MESSAGE"].some(r => message.member.hasPermission(r))) return message.channel.send("**У тебя нету прав для очистки.**");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("**У тебя нету прав!**");
     if(!args[0]) return message.channel.send("**Укажите сколько очистеть сообщений!**");
     message.channel.bulkDelete(args[0]).then(() => {
     message.channel.send(`**Очищенно \`${args[0]}\` сообщений.**`).then(msg => msg.delete(2000));

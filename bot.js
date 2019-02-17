@@ -1190,6 +1190,7 @@ if(message.content.startsWith(p + 'mute')) {
     }, ms(mutetime));
   }
 if(message.content.startsWith(p+'unmute')){
+    let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> **был размучен!**`)

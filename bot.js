@@ -1145,7 +1145,7 @@ if(message.content.startsWith(p + 'mute')) {
     if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для мута.**');
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.channel.send("**Этот пользователь не найден.**");
-    let mReason = args.join(" ").slice(23);
+    let mReason = args.join(" ").slice(25);
     if(tomute.hasPermission("KICK_MEMBERS")) return message.channel.send("**У вас нету прав.**");    
     let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    if(!muterole){
         try{
@@ -1259,7 +1259,7 @@ j!ping - Проверить пинг бота`)
 '** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{
-	message.channel.send("Check your DM`S!");	
+	message.channel.send("**Check your DM`S!**");	
 	})
 } catch (err) {
 	message.channel.send("Ваши личные сообщения заблокированы.");

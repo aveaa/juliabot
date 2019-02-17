@@ -1097,6 +1097,28 @@ if(message.content.startsWith(p + `cat`)) {
         });
     });
     }
+if(message.content.startsWith(p+'ban')){
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("**Этот пользователь не найдет!**");
+    let bReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MEMBERS_BAN")) return message.channel.send("**Простите,у вас нету прав.**");
+    if(bUser.hasPermission("MANAGE_SERVER")) return message.channel.send("**У тебя нету прав для банан это-го пользователя.**");
+
+    message.react("✅")
+    let g = message.createdAt;
+    let times = g.toLocaleString();
+    const embed = new Discord.RichEmbed()
+    .setColor(c)
+    .setTitle("Banned!")
+    .setDescription(`
+Пользователь: ${bUser} ID \`${bUser.id}\`
+Его забанил: <@${message.author.id}> ID \`${message.author.id}\`
+Время: ${times}
+Причина: ${bReason}
+    `)
+    message.guild.member(bUser).ban(bReason);
+    message.channel.send(embed);
+}
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');

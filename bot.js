@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const request = require('request');
 const client = new Discord.Client({disableEveryone : true});
-
+const ms = require('ms');
 
 let id = '476978677872328705';
 let p = "j!"
@@ -1120,7 +1120,7 @@ if(message.content.startsWith(p+'ban')){
 return;
 }
 if(message.content.startsWith(p+'kick')){
-    if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для бана.**');
+    if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для кика.**');
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("**Этот пользователь не найден!**");
     let kReason = args.join(" ").slice(22);
@@ -1141,6 +1141,47 @@ if(message.content.startsWith(p+'kick')){
     message.guild.member(kUser).kick(kReason);
     message.channel.send(embed);
 }
+if(message.content.startsWith(p + 'mute')) {
+    if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для мута.**');
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!tomute) return message.reply("**Этот пользователь не найден.**");
+    let mReason = args.join(" ").slice(22);
+    if(tomute.hasPermission("KICK_MEMBERS")) return message.reply("**У вас нету прав.**");    
+    let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    if(!muterole){
+        try{
+          muterole = message.guild.createRole({
+            name: "Muted",
+            color: "BLACK",
+            permissions:[]
+          })
+          message.guild.channels.forEach(async (channel, id) => {
+              channel.overwritePermissions(muterole, {
+              SEND_MESSAGES: false,
+              ADD_REACTIONS: false
+            });
+          });
+        }catch(e){
+          console.log(e.stack);
+        }
+      }
+    let mutetime = args[1];
+    if(!mutetime) return message.reply("**Вы не указали время.**");
+   (tomute.addRole(muterole.id));
+   const embed = new Discord.RichEmbed()
+    .setColor(c)
+    .setTitle("Muted!")
+    .setDescription(`
+Пользователь: <@${tomute.id}> ID ${tomute.id}
+Его замутил: <@${message.author.id}> ID ${message.author.id}
+Время: \`${ms(ms(mutetime))}\`
+Причина: ${mReason}
+`)
+    message.reply(`**<@${tomute.id}> был замучен на** \`${ms(ms(mutetime))}\``);
+    setTimeout(function(){
+      tomute.removeRole(muterole.id);
+      message.channel.send(`<@${tomute.id}> **был размучен!**`);
+    }, ms(mutetime));
+  }
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');

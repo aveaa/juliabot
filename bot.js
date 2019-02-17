@@ -1125,7 +1125,7 @@ if(message.content.startsWith(p+'kick')){
     if(!kUser) return message.channel.send("**Этот пользователь не найден!**");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**У тебя нету прав для кика этого пользователя!**");
-    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => kUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для бана этого пользователя.**");
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => kUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для кика этого пользователя.**");
     let g = message.createdAt;
     let times = g.toLocaleString();
     message.react("✅")
@@ -1133,10 +1133,10 @@ if(message.content.startsWith(p+'kick')){
     .setColor(c)
     .setTitle("Kick!")
     .setDescription(`
-Пользователь: ${bUser} ID \`${bUser.id}\`
+Пользователь: ${kUser} ID \`${kUser.id}\`
 Его кикнул: <@${message.author.id}> ID \`${message.author.id}\`
 Время: ${times}
-Причина: ${bReason}
+Причина: ${kReason}
     `)
     message.guild.member(kUser).kick(kReason);
     message.channel.send(embed);

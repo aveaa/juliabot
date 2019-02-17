@@ -1189,6 +1189,11 @@ if(message.content.startsWith(p + 'mute')) {
       message.channel.send(`<@${tomute.id}> **был размучен!**`);
     }, ms(mutetime));
   }
+if(message.content.startsWith(p+'unmute')){
+    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    tomute.removeRole(muterole.id);
+    message.channel.send(`<@${tomute.id}> **был размучен!**`)
+}
 if(message.content.startsWith(p+'clear')){
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("**У тебя нету прав!**");
     if(!args[0]) return message.channel.send("**Укажите сколько очистеть сообщений!**");

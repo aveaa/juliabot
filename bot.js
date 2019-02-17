@@ -600,7 +600,7 @@ if (message.content.startsWith(p + `neko`)) {
         });
     });
 }
-if (message.content.startsWith(p + `dog`)) {
+if (message.content.startsWith(p + `woof`)) {
     message.channel.send('Загрузка...').then(msg => {
         request('https://nekos.life/api/v2/img/woof', function (error, response, body) {
             try {
@@ -925,7 +925,6 @@ message.channel.send('Загрузка...').then(msg => {
 });
 }
 if(message.content.startsWith(p + `kemonomimi`)) {
-    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
 message.channel.send('Загрузка...').then(msg => {
     request('https://nekos.life/api/v2/img/kemonomimi', function (error, response, body) {
         try {
@@ -944,22 +943,6 @@ if(message.content.startsWith(p + `boobs`)) {
     if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
 message.channel.send('Загрузка...').then(msg => {
     request('https://nekos.life/api/v2/img/boobs', function (error, response, body) {
-        try {
-            let arr = JSON.parse(body);
-            let embed = new Discord.RichEmbed()
-                .setImage(arr['url'])
-                .setColor(c)
-                msg.edit({embed});
-                } catch (e) {
-               console.log(e)
-         }
-    });
-});
-}
-if(message.content.startsWith(p + `smallboobs`)) {
-    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
-message.channel.send('Загрузка...').then(msg => {
-    request('https://nekos.life/api/v2/img/smallboobs', function (error, response, body) {
         try {
             let arr = JSON.parse(body);
             let embed = new Discord.RichEmbed()
@@ -1008,6 +991,22 @@ if(message.content.startsWith(p + `keta`)) {
     if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
 message.channel.send('Загрузка...').then(msg => {
     request('https://nekos.life/api/v2/img/keta', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `feet`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekos.life/api/v2/img/feet', function (error, response, body) {
         try {
             let arr = JSON.parse(body);
             let embed = new Discord.RichEmbed()
@@ -1147,9 +1146,7 @@ j!cum - Отправить гифку cum
 j!les - Отправить гифку les
 j!blowjob - Отправить картинку blowjob
 j!lewdkemo - Отправить картинку lewdkemo
-j!kemonomimi - Отправить картинку kemonomimi
 j!boobs - Отправить картинку boobs
-j!smallboobs - Отправить картинку smallboobs
 j!lewd - Отправить картинку lewd
 j!feet - отправить картинку feet
 j!erofeet - Отправить картинку erofeet
@@ -1159,7 +1156,8 @@ j!classic - Отправить гифку classic`)
 `j!neko - Отправить картинку неко тян
 j!waifu - Отправить картинку waifu
 j!avatar - Отправить рандом аватарку[anime]
-j!holo - Отправить картинку holo`)
+j!holo - Отправить картинку holo
+j!kemonomimi - Отправить картинку kemonomimi`)
 .addField('Img <:julia_12:546224338857230339>',`
 j!dog - Отправить картинку собаки
 j!cat - Отправить картинку кошки

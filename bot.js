@@ -1145,7 +1145,7 @@ if(message.content.startsWith(p + 'mute')) {
     if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для мута.**');
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.channel.send("**Этот пользователь не найден.**");
-    let mReason = args.join(" ").slice(22);
+    let mReason = args.join(" ").slice(23);
     if(tomute.hasPermission("KICK_MEMBERS")) return message.channel.send("**У вас нету прав.**");    
     let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    if(!muterole){
         try{
@@ -1167,13 +1167,17 @@ if(message.content.startsWith(p + 'mute')) {
     let mutetime = args[1];
     if(!mutetime) return message.channel.send("**Вы не указали время.**");
    (tomute.addRole(muterole.id));
+   let g = message.createdAt;
+   let times = g.toLocaleString();
+   message.react("✅")
    const embed = new Discord.RichEmbed()
     .setColor(c)
     .setTitle("Muted!")
     .setDescription(`
 Пользователь: <@${tomute.id}> ID ${tomute.id}
 Его замутил: <@${message.author.id}> ID ${message.author.id}
-Время: \`${ms(ms(mutetime))}\`
+На сколько замутили: \`${ms(ms(mutetime))}\`
+Время: ${times}
 Причина: ${mReason}
 `)
     message.channel.send(embed);

@@ -1119,6 +1119,26 @@ if(message.content.startsWith(p+'ban')){
     message.guild.member(bUser).ban(bReason);
 return;
 }
+if(message.content.startsWith(p+'kick')){
+    if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для бана.**');
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("**Этот пользователь не найден!**");
+    let kReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**У тебя нету прав для кика этого пользователя!**");
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => bUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для бана этого пользователя.**");    let g = message.createdAt;
+    message.react("✅")
+    const embed = new Discord.RichEmbed()
+    .setColor(c)
+    .setTitle("Kick!")
+    .setDescription(`
+Пользователь: ${bUser} ID \`${bUser.id}\`
+Его кикнул: <@${message.author.id}> ID \`${message.author.id}\`
+Время: ${times}
+Причина: ${bReason}
+    `)
+    message.guild.member(kUser).kick(kReason);
+    message.channel.send(embed);
+}
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');

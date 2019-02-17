@@ -1106,6 +1106,7 @@ if(message.content.startsWith(p+'ban')){
 
     let g = message.createdAt;
     let times = g.toLocaleString();
+    message.react("✅")
     const embed = new Discord.RichEmbed()
     .setColor(c)
     .setTitle("Banned!")
@@ -1116,6 +1117,8 @@ if(message.content.startsWith(p+'ban')){
 Причина: ${bReason}
     `)
     message.channel.send(embed);
+    message.guild.member(bUser).ban(bReason);
+return;
 }
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {

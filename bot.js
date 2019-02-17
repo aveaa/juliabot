@@ -1145,9 +1145,11 @@ if(message.content.startsWith(p + 'mute')) {
     if (!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('**У меня нету прав для мута.**');
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.channel.send("**Этот пользователь не найден.**");
-    let mReason = args.join(" ").slice(25);
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => tomute.hasPermission(r))) return message.channel.send("**У тебя нету прав для мута этого пользователя.**");
+    let mReason = args.join("     ").slice(29);
     if(tomute.hasPermission("KICK_MEMBERS")) return message.channel.send("**У вас нету прав.**");    
-    let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    if(!muterole){
+    let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    
+    if(!muterole){
         try{
           muterole = message.guild.createRole({
             name: "Muted",
@@ -1186,6 +1188,14 @@ if(message.content.startsWith(p + 'mute')) {
       message.channel.send(`<@${tomute.id}> **был размучен!**`);
     }, ms(mutetime));
   }
+if(message.content.startsWith(p+'clear')){
+    //if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("**У тебя нету прав!**");
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS","MANAGE_MESSAGE"].some(r => message.member.hasPermission(r))) return message.channel.send("**У тебя нету прав для очистки.**");
+    if(!args[0]) return message.channel.send("**Укажите сколько очистеть сообщений!**");
+    message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.send(`**Очищенно \`${args[0]}\` сообщений.**`).then(msg => msg.delete(2000));
+  });
+}
         if (message.author.bot) return;
         if (message.content.startsWith(p + 'ping')) {
     message.channel.send('Ping: ' + `**${Date.now() - message.createdTimestamp}**` + ' `ms` \n');
@@ -1259,7 +1269,7 @@ j!ping - Проверить пинг бота`)
 '** https://discord.gg/6ygBnMg **')
 try {
 	message.author.send(embed).then(m =>{
-	message.channel.send("**Check your DM`S!**");	
+	message.channel.send("Check your DM`S!");	
 	})
 } catch (err) {
 	message.channel.send("Ваши личные сообщения заблокированы.");

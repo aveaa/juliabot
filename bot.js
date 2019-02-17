@@ -1101,7 +1101,7 @@ if(message.content.startsWith(p+'ban')){
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("**Этот пользователь не найдет!**");
     let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MEMBERS_BAN")) return message.channel.send("**Простите,у вас нету прав.**");
+    if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**Простите,у вас нету прав.**");
     if(bUser.hasPermission("MANAGE_SERVER")) return message.channel.send("**У тебя нету прав для банан это-го пользователя.**");
 
     message.react("✅")

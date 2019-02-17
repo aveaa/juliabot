@@ -1104,7 +1104,6 @@ if(message.content.startsWith(p+'ban')){
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**Простите,у вас нету прав.**");
     if(bUser.hasPermission("MANAGE_SERVER")) return message.channel.send("**У тебя нету прав для банан это-го пользователя.**");
 
-    message.react("✅")
     let g = message.createdAt;
     let times = g.toLocaleString();
     const embed = new Discord.RichEmbed()
@@ -1116,7 +1115,6 @@ if(message.content.startsWith(p+'ban')){
 Время: ${times}
 Причина: ${bReason}
     `)
-    message.guild.member(bUser).ban(bReason);
     message.channel.send(embed);
 }
         if (message.author.bot) return;

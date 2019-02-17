@@ -1189,9 +1189,10 @@ if(message.content.startsWith(p + 'mute')) {
       message.channel.send(`<@${tomute.id}> **был размучен!**`);
     }, ms(mutetime));
   }
-if(message.content.startsWith(p+'unmute')){
+  if(message.content.startsWith(p+'unmute')){
     let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    
-    let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let tomute = message.guild.members.get(message.mentions.users.first().id || args[0]);
+    if (!tomute.roles.has(muterole.id)) return message.channel.send('**Этот пользователь и так не в муте.**');
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> **был размучен!**`)
 }
@@ -1266,6 +1267,13 @@ j!kemonomimi - Отправить картинку kemonomimi`)
 .addField('Img <:julia_12:546224338857230339>',`
 j!dog - Отправить картинку собаки
 j!cat - Отправить картинку кошки
+`)
+.addField("Moderation <:julia_13:546675790717386763>",`
+j!ban \`[user]\` - Забанить пользователя
+j!kick \`[user]\` - Кикнуть пользователя
+j!clear \`Количество сообщений\` - Очистеть сообщения
+j!mute \`[user]\` \`На сколько\` \`{Причина}\` - Замутить пользоваетля[много багов]
+j!unmute \`[user]\` - Унмут\`нуть пользователя 
 `)
 .addField('Other <a:julia_7:526362654659575808>',
 `j!help - Посмотреть команды

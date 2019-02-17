@@ -1125,7 +1125,9 @@ if(message.content.startsWith(p+'kick')){
     if(!kUser) return message.channel.send("**Этот пользователь не найден!**");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**У тебя нету прав для кика этого пользователя!**");
-    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => bUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для бана этого пользователя.**");    let g = message.createdAt;
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => kUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для бана этого пользователя.**");
+    let g = message.createdAt;
+    let times = g.toLocaleString();
     message.react("✅")
     const embed = new Discord.RichEmbed()
     .setColor(c)

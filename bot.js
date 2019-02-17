@@ -1098,6 +1098,7 @@ if(message.content.startsWith(p + `cat`)) {
     });
     }
 if(message.content.startsWith(p+'ban')){
+    if (!message.guild.me.hasPermission('BAN_MEMBERS')) return message.channel.send('**У меня нету прав для бана.**');
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("**Этот пользователь не найдет!**");
     let bReason = args.join(" ").slice(22);

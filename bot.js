@@ -1102,9 +1102,7 @@ if(message.content.startsWith(p+'ban')){
     if(!bUser) return message.channel.send("**Этот пользователь не найдет!**");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**Простите,у вас нету прав.**");
-    if(bUser.hasPermission("ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS")) return message.channel.send("**У тебя нету прав для бана это-го пользователя.**");
-
-    let g = message.createdAt;
+    if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => bUser.hasPermission(r))) return message.channel.send("**У тебя нету прав для бана этого пользователя.**");    let g = message.createdAt;
     let times = g.toLocaleString();
     message.react("✅")
     const embed = new Discord.RichEmbed()

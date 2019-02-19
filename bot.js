@@ -1167,7 +1167,7 @@ if(message.content.startsWith(p + 'mute')) {
           console.log(e.stack);
         }
       }
-    let mutetime = args[2];
+    let mutetime = args[1];
     if(!mutetime) return message.channel.send("**Вы не указали время.**");
    (tomute.addRole(muterole.id));
    let g = message.createdAt;

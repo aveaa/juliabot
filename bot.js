@@ -1146,7 +1146,7 @@ if(message.content.startsWith(p + 'mute')) {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.channel.send("**Этот пользователь не найден.**");
     if (["ADMINISTRATOR","BAN_MEMBERS","KICK_MEMBERS"].some(r => tomute.hasPermission(r))) return message.channel.send("**У тебя нету прав для мута этого пользователя.**");
-    if(time < 0) return message.channel.send("**Я не могу замутить -0 или меньше.**")
+    if (parseInt(args[0]) < 0) return message.channel.send("**Я не могу мутить -0 или меньше.**")
     let mReason = args.join("     ").slice(29);
     if(tomute.hasPermission("KICK_MEMBERS")) return message.channel.send("**У вас нету прав.**");    
     let muterole = message.guild.roles.find(r => ['mute', 'Mut', 'Muted', 'Mute','muted','mut'].includes(r.name));    

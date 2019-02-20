@@ -110,7 +110,7 @@ client.on('message', message => {
              return message.channel.send("А где код?");
          }
        } catch (err) {
-          message.channel.send("\`\`\`${(err)}\`\`\`")
+          message.channel.send(`\`\`\`${(err)}\`\`\``)
     
        }
 	}

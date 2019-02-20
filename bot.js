@@ -1329,7 +1329,7 @@ j!sad - Уйти в печаль
 j!beer - Начать пить пиво
 j!happy - Радоватся
 `)
-const embed = new Discord.RichEmbed()
+const embed2 = new Discord.RichEmbed()
 .setColor(c)
 .addField('NSFW <a:julia_4:526361698496413716>',
 `j!sex \`[user]\` - Занятся половым актом с человеком
@@ -1363,13 +1363,13 @@ j!panal - Отправить картинку anal[no anime]
 j!ppussy - Отправить картинку pussyp[no anime]
 j!pgonewild - Отправить картинку gonewild[no anime]
 j!pthigh - Отправить картинку thigh[no anime]`)
-const embed = new Discord.RichEmbed()
+const embed3 = new Discord.RichEmbed()
 .setColor(c)
 .addField('Img <:julia_12:546224338857230339>',`
 j!dog - Отправить картинку собаки
 j!cat - Отправить картинку кошки
 `)
-const embed = new Discord.RichEmbed()
+const embed4 = new Discord.RichEmbed()
 .setColor(c)
 .addField("Moderation <:julia_13:546675790717386763>",`
 j!ban \`[user]\` - Забанить пользователя
@@ -1378,19 +1378,19 @@ j!clear \`Количество сообщений\` - Очистеть сооб�
 j!mute \`[user]\` \`На сколько\` \`{Причина}\` - Замутить пользоваетля[много багов]
 j!unmute \`[user]\` - Унмут\`нуть пользователя 
 `)
-const embed = new Discord.RichEmbed()
+const embed5 = new Discord.RichEmbed()
 .setColor(c)
 .addField('Other <a:julia_7:526362654659575808>',
 `j!help - Посмотреть команды
 j!invite - Пригласить бота себе на сервер
 j!ping - Проверить пинг бота`)
-const embed = new Discord.RichEmbed()
+const embed6 = new Discord.RichEmbed()
 .setColor(c)
 .addField('Server Link <a:julia_6:526362654655381515>',
 '** https://discord.gg/6ygBnMg **')
 try {
     message.react("✅")
-	message.author.send(embed).then(m =>{
+	message.author.send(embed,embed2,embed3,embed4,embed5,embed6).then(m =>{
 	message.channel.send("**Посмотри свои Личные сообщения!**");	
 	})
 } catch (err) {

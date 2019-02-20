@@ -102,6 +102,23 @@ client.on('message', message => {
          message.channel.send({embed});
        }
 	}
+	if (message.content.startsWith(admp + `eval2`) && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
+		const code = message.content.split(" ").slice(1).join(" ");
+        try {
+         let evaled = eval(code);
+         if (!code) {
+             return message.channel.send("А где код?");
+         }
+       } catch (err) {
+         const embed = new Discord.RichEmbed()
+         .setTitle(`EVAL ❌`)
+  
+         .setColor("0xff0202")
+         .setDescription(`📥 Input: \n \`\`\`${code}\`\`\` \n 📤 Output: \n  \`\`\`${(err)}\`\`\``)
+    
+         message.channel.send({embed});
+       }
+	}
     if (message.content.startsWith(p + `hug`)) {
         message.delete();
         let user = message.author;

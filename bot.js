@@ -74,7 +74,7 @@ client.on('message', message => {
     //nothing to do lol
     })
    }*/
-	if (message.content.startsWith(admp + 'eval') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
+	if (message.content.startsWith(admp + 'eval2') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
 		const code = message.content.split(" ").slice(1).join(" ");
         try {
          let evaled = eval(code);
@@ -102,7 +102,7 @@ client.on('message', message => {
          message.channel.send({embed});
        }
 	}
-	if (message.content.startsWith(admp + 'eval2') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
+	if (message.content.startsWith(admp + 'eval') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
 		const code = message.content.split(" ").slice(1).join(" ");
         try {
          let evaled = eval(code);

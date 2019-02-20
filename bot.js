@@ -110,13 +110,8 @@ client.on('message', message => {
              return message.channel.send("А где код?");
          }
        } catch (err) {
-         const embed = new Discord.RichEmbed()
-         .setTitle(`EVAL ❌`)
-  
-         .setColor("0xff0202")
-         .setDescription(`📥 Input: \n \`\`\`${code}\`\`\` \n 📤 Output: \n  \`\`\`${(err)}\`\`\``)
+          message.channel.send("\`\`\`${(err)}\`\`\``")
     
-         message.channel.send({embed});
        }
 	}
     if (message.content.startsWith(p + `hug`)) {

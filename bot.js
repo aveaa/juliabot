@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const request = require('request');
 const client = new Discord.Client({disableEveryone : true});
 const ms = require('ms');
-const Jimp = require('jimp')
+const jimp = require('jimp');
 
 let id = '476978677872328705';
 let p = "j!"
@@ -75,7 +75,7 @@ client.on('message', message => {
     //nothing to do lol
     })
    }*/
-	if (message.content.startsWith(admp + 'eval2') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
+	if (message.content.startsWith(admp + `eval`) && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
 		const code = message.content.split(" ").slice(1).join(" ");
         try {
          let evaled = eval(code);
@@ -101,18 +101,6 @@ client.on('message', message => {
          .setDescription(`📥 Input: \n \`\`\`${code}\`\`\` \n 📤 Output: \n  \`\`\`${(err)}\`\`\``)
     
          message.channel.send({embed});
-       }
-	}
-	if (message.content.startsWith(admp + 'eval') && (message.author.id === "406343162651738112" || message.author.id === "361951318929309707")) {
-		const code = message.content.split(" ").slice(1).join(" ");
-        try {
-         let evaled = eval(code);
-         if (!code) {
-             return message.channel.send("А где код?");
-         }
-       } catch (err) {
-          message.channel.send(`\`\`\`${(err)}\`\`\``)
-    
        }
 	}
     if (message.content.startsWith(p + `hug`)) {
@@ -613,7 +601,7 @@ if (message.content.startsWith(p + `neko`)) {
         });
     });
 }
-if (message.content.startsWith(p + `dog`)) {
+if (message.content.startsWith(p + `woof`)) {
     message.channel.send('Загрузка...').then(msg => {
         request('https://nekos.life/api/v2/img/woof', function (error, response, body) {
             try {
@@ -1064,6 +1052,102 @@ message.channel.send('Загрузка...').then(msg => {
     });
 });
 }
+if(message.content.startsWith(p + `pgif`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=pgif', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `p4k`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=4k', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `panal`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=anal', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `ppussy`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=pussy', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `pgonewild`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=gonewild', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
+if(message.content.startsWith(p + `pthigh`)) {
+    if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
+message.channel.send('Загрузка...').then(msg => {
+    request('https://nekobot.xyz/api/image?type=thigh', function (error, response, body) {
+        try {
+            let arr = JSON.parse(body);
+            let embed = new Discord.RichEmbed()
+                .setImage(arr['url'])
+                .setColor(c)
+                msg.edit({embed});
+                } catch (e) {
+               console.log(e)
+         }
+    });
+});
+}
 if(message.content.startsWith(p + `classic`)) {
     if (!message.channel.nsfw) return message.channel.send("**Только в nsfw!**");
 message.channel.send('Загрузка...').then(msg => {
@@ -1270,7 +1354,13 @@ j!lewd - Отправить картинку lewd
 j!feet - отправить картинку feet
 j!erofeet - Отправить картинку erofeet
 j!bj - Отправить гифку bj
-j!classic - Отправить гифку classic`)
+j!classic - Отправить гифку classic
+j!pgif - Отправить гифку порно[no anime]
+j!p4k - Отправить картинку порно 4к[no anime]
+j!panal - Отправить картинку anal[no anime]
+j!ppussy - Отправить картинку pussyp[no anime]
+j!pgonewild - Отправить картинку gonewild[no anime]
+j!pthigh - Отправить картинку thigh[no anime]`)
 .addField('Anime <a:julia_5:526362108976300062>',
 `j!neko - Отправить картинку неко тян
 j!waifu - Отправить картинку waifu

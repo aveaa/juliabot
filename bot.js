@@ -1329,6 +1329,8 @@ j!sad - Уйти в печаль
 j!beer - Начать пить пиво
 j!happy - Радоватся
 `)
+const embed = new Discord.RichEmbed()
+.setColor(c)
 .addField('NSFW <a:julia_4:526361698496413716>',
 `j!sex \`[user]\` - Занятся половым актом с человеком
 j!hentai - Посмотреть хентай
@@ -1361,16 +1363,14 @@ j!panal - Отправить картинку anal[no anime]
 j!ppussy - Отправить картинку pussyp[no anime]
 j!pgonewild - Отправить картинку gonewild[no anime]
 j!pthigh - Отправить картинку thigh[no anime]`)
-.addField('Anime <a:julia_5:526362108976300062>',
-`j!neko - Отправить картинку неко тян
-j!waifu - Отправить картинку waifu
-j!avatar - Отправить рандом аватарку[anime]
-j!holo - Отправить картинку holo
-j!kemonomimi - Отправить картинку kemonomimi`)
+const embed = new Discord.RichEmbed()
+.setColor(c)
 .addField('Img <:julia_12:546224338857230339>',`
 j!dog - Отправить картинку собаки
 j!cat - Отправить картинку кошки
 `)
+const embed = new Discord.RichEmbed()
+.setColor(c)
 .addField("Moderation <:julia_13:546675790717386763>",`
 j!ban \`[user]\` - Забанить пользователя
 j!kick \`[user]\` - Кикнуть пользователя
@@ -1378,15 +1378,20 @@ j!clear \`Количество сообщений\` - Очистеть сооб�
 j!mute \`[user]\` \`На сколько\` \`{Причина}\` - Замутить пользоваетля[много багов]
 j!unmute \`[user]\` - Унмут\`нуть пользователя 
 `)
+const embed = new Discord.RichEmbed()
+.setColor(c)
 .addField('Other <a:julia_7:526362654659575808>',
 `j!help - Посмотреть команды
 j!invite - Пригласить бота себе на сервер
 j!ping - Проверить пинг бота`)
+const embed = new Discord.RichEmbed()
+.setColor(c)
 .addField('Server Link <a:julia_6:526362654655381515>',
 '** https://discord.gg/6ygBnMg **')
 try {
+    message.react("✅")
 	message.author.send(embed).then(m =>{
-	message.channel.send("Check your DM`S!");	
+	message.channel.send("**Посмотри свои Личные сообщения!**");	
 	})
 } catch (err) {
 	message.channel.send("Ваши личные сообщения заблокированы.");

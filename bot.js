@@ -1329,7 +1329,7 @@ j!sad - Уйти в печаль
 j!beer - Начать пить пиво
 j!happy - Радоватся
 `)
-const embed2 = new Discord.RichEmbed()
+/*const embed2 = new Discord.RichEmbed()
 .setColor(c)
 .addField('NSFW <a:julia_4:526361698496413716>',
 `j!sex \`[user]\` - Занятся половым актом с человеком
@@ -1362,7 +1362,7 @@ j!p4k - Отправить картинку порно 4к[no anime]
 j!panal - Отправить картинку anal[no anime]
 j!ppussy - Отправить картинку pussyp[no anime]
 j!pgonewild - Отправить картинку gonewild[no anime]
-j!pthigh - Отправить картинку thigh[no anime]`)
+j!pthigh - Отправить картинку thigh[no anime]`)*/
 const embed3 = new Discord.RichEmbed()
 .setColor(c)
 .addField('Img <:julia_12:546224338857230339>',`
@@ -1393,7 +1393,7 @@ try {
 	message.author.send(embed).then(m =>{
 	message.channel.send("**Посмотри свои Личные сообщения!**");	
     })
-    message.author.send(embed2)
+    //message.author.send(embed2)
     message.author.send(embed3)
     message.author.send(embed4)
     message.author.send(embed5)

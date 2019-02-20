@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const request = require('request');
 const client = new Discord.Client({disableEveryone : true});
 const ms = require('ms');
-const jimp = require('jimp');
 
 let id = '476978677872328705';
 let p = "j!"
@@ -1075,7 +1074,7 @@ message.channel.send('Загрузка...').then(msg => {
         try {
             let arr = JSON.parse(body);
             let embed = new Discord.RichEmbed()
-                .setImage(arr['url'])
+                .setImage(arr['message'])
                 .setColor(c)
                 msg.edit({embed});
                 } catch (e) {

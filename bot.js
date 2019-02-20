@@ -613,7 +613,7 @@ if (message.content.startsWith(p + `neko`)) {
         });
     });
 }
-if (message.content.startsWith(p + `woof`)) {
+if (message.content.startsWith(p + `dog`)) {
     message.channel.send('Загрузка...').then(msg => {
         request('https://nekos.life/api/v2/img/woof', function (error, response, body) {
             try {
